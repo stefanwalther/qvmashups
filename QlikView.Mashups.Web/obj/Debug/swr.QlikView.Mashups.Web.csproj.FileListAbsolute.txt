@@ -1,5 +1,0 @@
-D:\Projects\QlikView-related\swr.QlikView.Mashups.Solution\swr.QlikView.Mashups.Web\bin\swr.QlikView.Mashups.Web.dll
-D:\Projects\QlikView-related\swr.QlikView.Mashups.Solution\swr.QlikView.Mashups.Web\bin\swr.QlikView.Mashups.Web.pdb
-D:\Projects\QlikView-related\swr.QlikView.Mashups.Solution\swr.QlikView.Mashups.Web\obj\Debug\swr.QlikView.Mashups.Web.csprojResolveAssemblyReference.cache
-D:\Projects\QlikView-related\swr.QlikView.Mashups.Solution\swr.QlikView.Mashups.Web\obj\Debug\swr.QlikView.Mashups.Web.dll
-D:\Projects\QlikView-related\swr.QlikView.Mashups.Solution\swr.QlikView.Mashups.Web\obj\Debug\swr.QlikView.Mashups.Web.pdb
