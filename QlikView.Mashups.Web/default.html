@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link type="text/css" href="library/css/reset.css"  rel="stylesheet"/>
+    <link type="text/css" href="library/css/smoothness/jquery-ui-1.9.1.custom.css"  rel="stylesheet"/>
+    <link type="text/css" href="library/css/style.css"  rel="stylesheet"/>
+    
+    <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(function () {
+
+            // Menu 
+            $("#menu").menu();
+            $("#mnuCaller").click(this, function () {
+                $("#menu").toggle();
+                $("#menu").position({
+                    my: "left top",
+                    at: "left bottom",
+                    of: $("#mnuCaller"),
+                    collision: "flip"
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+    .ui-menu { width: 250px; }
+    </style>
+
+    <title>Mashups with QlikView - Index</title>
+</head>
+<body>
+
+<div class="MainContainer">
+
+    <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
+    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
+        <li><a href="default.html">Start Page</a></li>
+        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
+        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
+        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
+        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
+    </ul>
+
+<h1>Mashups with QlikView</h1>
+
+<p>
+The intention of this little collection of Html-Microsites is to demonstrate the capabilities of creating <a href="http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)" target="_blank">Mashups</a> using QlikView documents/objects.
+</p>
+
+<h2>Motivation</h2>
+<p>
+It is exremely easy to create Mashups with QlikView. Unfortunately this integration capability is not really well known and also not documented in detail.<br />
+That's why I have created this microsite wich should help as
+</p>
+
+<ul>
+    <li>A reference</li>
+    <li>A collection of code-samples</li>
+    <li>A collection of ready-to-demo examples</li>
+</ul>
+
+
+<h2>Three Different Ways to Realize Mashups</h2>
+
+<p>
+From the technical perspective there are three completely different approaches how one could implement Mashups with QlikViews. This Mashup-microsoft tries to cover all of these three approaches.
+Finally I have added a <a href="QlikView_Mashups_4.html">comparison of these approaches</a> which could be a starting point if you are not sure which approach meets your requirements best.
+</p>
+
+<ol>
+    <li><a href="QlikView_Mashups_1.html">Simple document integration</a> (using opendoc.htm)</li>
+    <li><a href="QlikView_Mashups_2.html">Simple object integration</a> (using singleobject.htm)</li>
+    <li><a href="QlikView_Mashups_3.html">Div integration</a> (using the Ajax Javascript library)</li>
+</ol>
+
+<h2>Hints for Setting up the Examples:</h2>
+<p>
+    Unfortunately there is - in most cases - little work to get the examples up and running.
+</p>
+    <ul>
+        <li>For running these examples you have to ensure that you fullfill the following requirements:</li>
+        <ul>
+            <li>A local installation of QlikView Accesspoint + QlikView Server</li>
+            <li>The local QlikView Accesspoint has to be accessible via http://localhost</li>
+            <li>Ensure that the following link works: <a href="http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw" target="_blank">http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw</a></li>
+            <li>If not, download the "Sales Compass.qvw" application from demo.qlikview.com and make it accessible in the root directory of your Accesspoint</li>
+        </ul>
+        <li>There is no need to open these example Html files using a web server. You can just open it from your file system. Doing so you will probably get a warning by your browser to allow execution of ActiveX ... please confirm that.</li>
+    </ul>
+    
+</p>
+
+<h2>Compatibility:</h2>
+<p>
+    <ul>
+        <li>
+            All examples have been tested using QlikView 10 and QlikView 11.
+        </li>
+    </ul>
+</p>
+
+
+</div>
+
+<div class="Copyright">
+    Copyright 2013, Stefan Walther (<a href="http://www.qlikblog.at/">http://www.qlikblog.at</a>)
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>QlikView Mashups - Simple Object Integration</title>
+    <link type="text/css" href="library/css/reset.css"  rel="stylesheet"/>
+    <link type="text/css" href="library/css/smoothness/jquery-ui-1.9.1.custom.css"  rel="stylesheet"/>
+    <link type="text/css" href="library/css/style.css"  rel="stylesheet"/>
+    
+    <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            // Tabs
+            $("#tabs").tabs();
+
+            // Menu 
+            $("#menu").menu();
+            $("#mnuCaller").click(this, function () {
+                $("#menu").toggle();
+                $("#menu").position({
+                    my: "left top",
+                    at: "left bottom",
+                    of: $("#mnuCaller"),
+                    collision: "flip"
+                });
+            });
+
+        });
+    </script>
+    <style type="text/css">
+    .ui-menu { width: 250px; }
+
+    </style>
+</head>
+<body>
+<div class="MainContainer">
+    <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
+    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
+        <li><a href="default.html">Start Page</a></li>
+        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
+        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
+        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
+        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
+    </ul>
+
+    <h1>QlikView Mashups - Simple Object Integration (singleobject.htm)</h1>
+
+        <div id="tabs">
+        <ul>
+            <li><a href="#tabs-introduction">Introduction</a></li>
+            <li><a href="#tabs-parameters">Parameters</a></li>
+            <li><a href="#tabs-example">Example</a></li>
+        </ul>
+        <div id="tabs-introduction">
+            <h2 class="h2Tabs">Introduction</h2>
+            Integrating single QlikView objects by using an IFRAME and singleobject.htm works very similar as the opendoc.htm integration.
+            The main difference between these two approaches is that
+            <ul>
+                <li>opendoc.htm refrences a complete QlikView application (including all sheets, toolbar, and so on).</li>
+                <li>singleobject.htm references a single object</li>
+            </ul>
+            <br /><br />
+            On the other hand singleobject.htm integration and DIV integration is very similar:
+            <ul>
+                <li>Both approaches brings a single object into your existing web application</li>
+                <li>For a full comparison of these two approaches please visit <a href="QlikView_Mashups_4.html">this site</a></li>
+            </ul>
+        </div>
+        </div>
+</div>
+
+
+    
+
+</div>
+</body>
+</html>

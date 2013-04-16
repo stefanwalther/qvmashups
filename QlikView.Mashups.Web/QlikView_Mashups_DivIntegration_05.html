@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link type="text/css" rel="stylesheet" href="library/css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="library/css/smoothness/jquery-ui-1.9.1.custom.css" />
+    <link type="text/css" rel="stylesheet" href="library/css/style.css" />
+    
+    <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+
+    <script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"></script>
+
+    <title></title>
+    <script language="javascript" type="text/javascript">
+        var qvDoc;
+
+        Init = function () {
+            qvDoc = Qv.GetCurrentDocument();
+            qvDoc.Clear();
+        }
+
+        Qv.InitWorkBench({
+            View: 'Sales Compass',
+            Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+            // Ensure that in this demo everything works correct, so we should clear the selections in this case
+            BodyOnLoadFunctionNames: ['Init']
+        });
+
+    </script>
+    <style type="text/css">
+    .QvInlineObject 
+    {
+        position:relative;
+        margin-left:10px;
+        margin-right:10px;
+        float:left;
+    }
+    .QvListBox, .QvOptional
+    {
+        color:Red !important;   
+        font-family:'Comic Sans MS', cursive !important; 
+    }
+    html 
+    {
+        overflow:hidden;
+        padding:10px 10px 10px 10px;
+    }
+    </style>
+</head>
+<body>
+
+        <h2 class="hidden" id="demo_title">Enable/Disable Inline Styles</h2>
+        <div id="demo_description" class="hidden">
+            This example loads two objects from a single QlikView document.<br />
+            <br />
+            Note that interactivity between these two objects is still supported!<br />
+            <i>(Try to select some "Forecast Categories" and the "Sales Pipeline" chart will react.)</i>
+        </div>
+
+        <div>
+        <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"
+            id="Document\LB5732" style="height: 100px; width: 150px;" avqstyle="false">
+        </div>
+        <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\CH351"
+            id="Document\CH351" style="width: 300px; height: 250px;" avqstyle="false">
+        </div>
+        </div>
+
+        <div id="demo_code_header" class="hidden">
+        <p>
+            Javascript code placed in the header of the Html file to initialize the QlikView-object(s).
+        </p>
+            <pre class="wrapped">
+            &lt;script language="javascript" type="text/javascript"&gt;<br />
+                 &nbsp;&nbsp;&nbsp;Qv.InitWorkBench({<br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View: 'Sales Compass'<br />
+                 &nbsp;&nbsp;&nbsp;});<br />
+            &lt;/script&gt;<br />
+            </pre>
+        </div>
+
+        <div id="demo_code_body" class="hidden">
+        <p>
+        DIV blocks to place the QlikView objects within your webpage.
+        </p>
+        <div>
+            <pre class="wrapped">
+            &lt;!-- Listbox with the Id LB5732 --&gt;<br />
+            &lt;div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732" <span class="redBold">avqstyle="false"</span> &gt;&lt;/div&gt;<br />
+            <br />
+            &lt;!-- Chart with the Id CH351 --&gt;<br />
+            &lt;div class="QvInlineObject"  avqview="Sales Compass" avq="object:.Document\CH351" <span class="redBold">avqstyle="false"</span> &gt;&lt;/div&gt;<br />
+            </pre>
+        </div>
+        </div>
+
+</body>
+</html>

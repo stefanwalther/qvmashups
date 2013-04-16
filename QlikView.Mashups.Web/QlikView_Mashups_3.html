@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>QlikView Mashups - Div Integration</title>
+	<link type="text/css" href="library/css/reset.css"  rel="stylesheet"/>
+	<link type="text/css" href="library/css/smoothness/jquery-ui-1.9.1.custom.css"  rel="stylesheet"/>
+	<link type="text/css" href="library/css/style.css"  rel="stylesheet"/>
+
+	<script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
+	<script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+	<script type="text/javascript" language="javascript">
+	    $(function () {
+	        // Tabs
+	        $("#tabs").tabs({
+	            onShow: function (event, ui) {
+	                if (ui.index == 1) {
+	                    $('#example_1').trigger('click');
+	                }
+	            }
+
+	        });
+
+	        // Menu 
+	        $("#menu").menu();
+	        $("#mnuCaller").click(this, function () {
+	            $("#menu").toggle();
+	            $("#menu").position({
+	                my: "left top",
+	                at: "left bottom",
+	                of: $("#mnuCaller"),
+	                collision: "flip"
+	            });
+	        });
+
+
+	        $('.link_demo').click(function () {
+	            $(".demo-list").find(".active").removeClass("active");
+	            $(this).parent().addClass("active");
+	        });
+
+	        $('#ifrm_demo').load(function () {
+	            var $ifr = $('#ifrm_demo');
+	            if ($ifr.contents().get(0).location.href != "about:blank") {
+	                $('#demo_title').text($ifr.contents().find('#demo_title').html());
+	                $('#demo-description').html($ifr.contents().find('#demo_description').html());
+	                $('#demo-source-header').html($ifr.contents().find('#demo_code_header').html());
+	                $('#demo-source-css').html($ifr.contents().find('#demo_code_css').html());
+	                $('#demo-div-integration').html($ifr.contents().find('#demo_code_body').html());
+	            };
+	        });
+
+
+
+	    });
+	</script>
+    <style type="text/css">
+    .ui-menu { width: 250px; }
+    </style>
+</head>
+<body>
+<div class="MainContainer">
+    <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
+    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
+        <li><a href="default.html">Start Page</a></li>
+        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
+        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
+        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
+        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
+    </ul>
+
+	<h1>QlikView Mashups - Div Integration</h1>
+
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-introduction">Introduction</a></li>
+			<li><a href="#tabs-examples">Examples</a></li>
+		</ul>
+		<div id="tabs-introduction">
+			<h2 class="h2Tabs">
+				Introduction</h2>
+				<p>
+					These examples make use of the QlikView Ajax library.<br />
+					So for getting these examples to work you first have to make sure that you include a reference to the QlikView Javascript library in the header of your Html file:
+				</p>
+				<pre class="wrapped">
+				&lt;script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"&gt;&lt;/script&gt;
+				</pre>
+
+				<p>
+				After doing so, define a script block in the Html header which initializes the reference to the desired QlikView application:
+				</p>
+				
+				<pre class="wrapped">
+				&lt;script language="javascript" type="text/javascript"&gt;<br />
+					&nbsp;&nbsp;&nbsp;Qv.InitWorkBench({<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View: 'Sales Compass',<br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Note: According to the documentation "Host: 'Local'" should be the default value,<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//       but in my experience it seems to be more stable to use "Host: null" instead<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Host: null<br />
+					&nbsp;&nbsp;&nbsp;});<br />
+				&lt;/script&gt;<br />
+				</pre>
+				
+				<br />
+				<p>
+				Detailed information about the QlikView JavaScript API can be found at the following resources:<br />
+				</p>
+				
+				<ul>
+					<li>
+						<b>Online QliView Javascript API (version 11)</b><br />
+						<a href="http://qlikcommunity.s3.amazonaws.com/misc/index.html" target="_blank" class="lnkBlue">http://qlikcommunity.s3.amazonaws.com/misc/index.html</a>
+					</li>
+					<li>
+						<b>Download for the QlikView Javascript API (version 11)</b><br />
+						<a href="http://community.qlikview.com/docs/DOC-2673" target="_blank" class="lnkBlue">http://community.qlikview.com/docs/DOC-2673</a>
+					</li>
+					<li>
+						<b>Download for the Javascript API (version 10)</b><br />
+						<a href="http://community.qlikview.com/docs/DOC-2605" target="_blank" class="lnkBlue">http://community.qlikview.com/docs/DOC-2605</a>
+					</li>
+				</ul>
+				
+				
+				
+				<br />
+		</div>
+		<div id="tabs-examples">
+				
+			<div class="demo-list">
+				<h2>Select Demos:</h2>
+				<ul>
+					<li><a href="QlikView_Mashups_DivIntegration_01.html" target="ifr_demo" class="link_demo active" id="example_1">Two objects</a></li>
+					<li><a href="QlikView_Mashups_DivIntegration_02.html" target="ifr_demo" class="link_demo">Two objects using initial selections</a></li>
+					<li><a href="QlikView_Mashups_DivIntegration_03.html" target="ifr_demo" class="link_demo">Clear existing selections after loading</a></li>
+					<!--<li><a href="QlikView_Mashups_DivIntegration_4.html" target="ifr_demo" class="link_demo">Open document and select a bookmark</a></li>-->
+                    <li><a href="QlikView_Mashups_DivIntegration_05.html" target="ifr_demo" class="link_demo">Enable/Disable Inline Style</a></li>
+                    <li><a href="QlikView_Mashups_DivIntegration_06.html" target="ifr_demo" class="link_demo">Using InitialSearch</a></li>
+                    <li><a href="QlikView_Mashups_DivIntegration_10.html" target="ifr_demo" class="link_demo">Loading from different QlikView documents</a></li>
+				</ul>
+			</div>
+
+			<div class="entry-content">
+				<h2 id="demo_title"></h2>
+				<iframe class="demo-frame" id="ifrm_demo" name="ifr_demo" src="QlikView_Mashups_DivIntegration_01.html"></iframe>
+
+				<h2>Description:</h2>
+				<div id="demo-description"></div>
+				
+				<h2>Source Code (Html Header):</h2>
+				<div id="demo-source-header"></div>
+
+                <h2>Source Code (CSS Definition):</h2>
+                <div id="demo-source-css"></div>
+
+				<h2>Div Integration:</h2>
+				<div id="demo-div-integration"></div>
+
+				<div id="spacerDiv" style="height:50px;"></div>
+			</div>
+			<br clear="all" />
+				
+		</div>
+	</div>
+</div>
+<br /><br />
+
+
+</body>
+</html>

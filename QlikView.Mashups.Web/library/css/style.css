@@ -1,0 +1,280 @@
+﻿html 
+{
+	 overflow-y: scroll;
+}
+
+body, .ui-widget
+{
+	line-height:1.1em;
+	font-family:Segoe UI, Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+	font-size:0.9em;
+}
+
+h1 
+{
+	color: #62AD1D;
+	font-size:150%;   
+	margin-bottom:15px;
+	font-weight:bold;
+	border-bottom-style:solid;
+	border-bottom-color:#efefef;
+	border-bottom-width:1px;
+	line-height:1.3em;
+}
+
+h2 
+{
+	color: #62AD1D;
+	font-size:120%;   
+	margin-bottom:15px;
+	margin-top:20px;
+}
+
+h2.h2Tabs 
+{
+	font-size:120%;  
+	margin-left:-10px; 
+	margin-bottom:15px;
+	
+}
+
+ol 
+{
+	list-style-type:decimal;
+	margin-left:50px;
+	line-height:1.5em;
+	margin-top:10px;
+}
+ul
+{
+	list-style-type:circle;
+	margin-left:50px;
+	line-height:1.5em;
+	margin-top:10px;
+}
+
+
+p
+{
+	margin-top:10px;
+	margin-bottom:10px;  
+	line-height:1.4em;  
+}
+
+b 
+{
+	font-weight:bold;    
+}
+
+small 
+{
+	font-size:80%;    
+}
+
+i
+{
+	font-style:italic;    
+}
+
+a, .lnkBlue, a.lnkBlue
+{
+	color:Blue;
+	text-decoration:none;    
+}
+
+
+a:visited
+{
+	text-decoration:none;    
+}
+a:hover
+{
+	text-decoration:underline;    
+}
+
+pre.wrapped 
+{
+overflow: auto;
+font-family: “Consolas”,monospace;
+font-size: 9pt;
+text-align:left;
+background-color: #FCF7EC; /*#FCF7EC*/
+overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not
+white-space: pre-wrap; /* css-3 */
+white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+word-wrap: break-word; /* Internet Explorer 5.5+ */
+margin: 0px 0px 0px 0px;
+padding:15px 15px 13px 15px;
+white-space : normal; /* crucial for IE 6, maybe 7? */  
+border-color:#ccc;
+border-width:1px;
+border-style:solid;
+}
+
+.codeIt 
+{
+	font-family:Courier New;
+	font-size:90%;
+}
+
+.prettyprint 
+{
+	margin-left:30px;
+	background-color:#eeeeee;
+}
+
+.hidden
+{
+	display:none;    
+}
+
+/* --------------------------------------------------------------- */
+div.demo-list {
+	width: 25%; 
+	float: left;
+	margin-right:20px;
+}
+
+div.entry-content 
+{
+	float:right;
+	width:70%;
+}
+
+div.demo-list h2 {
+	font-weight: normal; margin-bottom: 0px;
+}
+div.demo-list ul {
+	list-style: none; 
+	width: 100%; 
+	border-top-color: rgb(204, 204, 204); 
+	border-top-width: 1px; 
+	border-top-style: solid;
+	margin-left:0px;
+}
+.demo-list li {
+	margin: 0px; 
+	border-bottom-color: rgb(204, 204, 204); 
+	border-bottom-width: 1px; 
+	border-bottom-style: solid; 
+	background-color: rgb(238, 238, 238);
+
+}
+.demo-list .active {
+	background-color: rgb(255, 255, 255);
+}
+.demo-list a {
+	padding: 2% 4%; color: rgb(63, 63, 63); font-size: 13px; font-weight: bold; text-decoration: none; display: block; text-shadow: 1px 1px #fff;
+}
+.demo-frame {
+	width: 100%; 
+	height: 350px;
+	border-style:solid;
+	border-color:#eeeeee;
+	border-width:1px;
+}
+
+/* Container for displaying the div integration objects*/
+div.divContainer {
+    overflow: auto;
+}
+
+.view-source a {
+	cursor: pointer;
+}
+.view-source pre {
+	overflow: hidden; display: none;
+}
+
+/* --------------------------------------------------------------- */
+
+#tabs {border: none}
+
+
+
+/* --------------------------------------------------------------- */
+.MainContainer 
+{
+	width: 80%;
+	max-width:1280px;
+	min-width:800px;
+	margin-left:auto;
+	margin-right:auto; 
+	border-color:#cccccc;
+	border-width:1px;
+	border-style:solid;
+	margin-top:20px;  
+	
+	padding-left:20px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.Copyright
+{
+	text-align:center;
+	font-size:.8em;
+	color:#999;
+}
+
+.BackToIndex 
+{
+	position:relative;
+	text-align:right;
+   
+}
+
+.divExample 
+{
+	margin-top:20px;   
+}
+#divExplanation, #divExplanation div
+{
+	padding-left:40px;    
+}
+
+.redBold 
+{
+	color:red;
+	font-weight:bold;    
+}
+
+/* Table Definition */
+table
+{
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+}
+tr 
+{
+	line-height:22px;
+	padding: 4px;
+}
+th
+{
+	background-color:#ccc;
+	font-weight:bold;
+	padding: 4px;
+		
+}
+td 
+{
+	border-right-color: #cccccc;
+	border-right-style:solid;
+	border-right-width:1px;
+	padding-left:4px;  
+	padding-right:4px;  
+	line-height:22px;
+}
+
+td.oddRow
+{
+	background-color: #fff;
+}
+td.evenRow
+{
+	background-color: #eee;    
+}
+
+

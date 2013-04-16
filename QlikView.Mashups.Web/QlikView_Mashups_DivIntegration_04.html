@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link type="text/css" rel="stylesheet" href="library/css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="library/css/smoothness/jquery-ui-1.9.1.custom.css" />
+    <link type="text/css" rel="stylesheet" href="library/css/style.css" />
+    
+    <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+
+    <script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"></script>
+
+    <title></title>
+    <script language="javascript" type="text/javascript">
+        var qvDoc;
+        Init = function () {
+            qvDoc = Qv.GetCurrentDocument();
+
+            // Ensure that at all selection are cleared
+            qvDoc.Clear();
+
+            // Select a bookmark (in this case the bookmark with the ID Document\BM01)
+            qvDoc.Bookmarks().SelectBookmark("Document\\\BM01");
+        }
+
+        Qv.InitWorkBench({
+            View: 'Sales Compass',
+            Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+            // Trigger Onload function
+            BodyOnLoadFunctionNames: ['Init']
+        });
+
+    </script>
+    <style type="text/css">
+    .QvInlineObject 
+    {
+        position:relative;
+        margin-left:10px;
+        margin-right:10px;
+        float:left;
+    }
+    html 
+    {
+        overflow:hidden;
+        padding:10px 10px 10px 10px;
+    }
+    </style>
+</head>
+<body>
+
+        <h2 class="hidden" id="demo_title">Clear existing selections after loading</h2>
+        <div id="demo_description" class="hidden">
+            Load some objects, clear the initial selection and call a bookmark.<br />
+            <span class="redBold">This does not work ... seems to be a bug in QlikView 11 SR2.</span>
+        </div>
+
+        <div>
+         <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"
+            id="Document\LB5732" style="height: 100px; width: 200px;">
+        </div>
+        <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\CS90"
+            id="Document\CS90" style="width: 400px; height: 100px;">
+        </div>
+        <br clear="all" /><br />       
+        <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\CH351"
+            id="Document\CH351" style="width: 400px; height: 200px;">
+        </div>
+        
+        </div>
+
+        <div id="demo_code_header" class="hidden">
+        <p>
+            Javascript code placed in the header of the Html file to initialize the QlikView-object(s).
+        </p>
+            <pre class="wrapped">
+            var qvDoc;<br />
+            Init = function () {<br />
+                &nbsp;&nbsp;&nbsp;qvDoc = Qv.GetCurrentDocument();<br />
+                <br />
+                &nbsp;&nbsp;&nbsp;// Ensure that at all selection are cleared<br />
+                &nbsp;&nbsp;&nbsp;qvDoc.Clear();<br />
+                <br />
+                &nbsp;&nbsp;&nbsp;// Select a bookmark (in this case the bookmark with the ID Document\BM01)<br />
+                &nbsp;&nbsp;&nbsp;qvDoc.Bookmarks().SelectBookmark("Document\\\BM01");<br />
+            }<br />
+            <br />
+            Qv.InitWorkBench({<br />
+                &nbsp;&nbsp;&nbsp;View: 'Sales Compass',<br />
+                <br />
+                &nbsp;&nbsp;&nbsp;// Trigger Onload function<br />
+                &nbsp;&nbsp;&nbsp;BodyOnLoadFunctionNames: ['Init']<br />
+            });<br />
+            </pre>
+        </div>
+
+        <div id="demo_code_body" class="hidden">
+        <p>
+        DIV blocks to place the QlikView objects within your webpage.
+        </p>
+        <div>
+            <pre class="wrapped">
+            &lt;div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732" style="height: 100px; width: 200px;"&gt;
+            &lt;/div&gt;<br /><br />
+            &lt;div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\CS90" style="width: 400px; height: 100px;"&gt;
+            &lt;/div><br /><br />
+            &lt;br clear="all" /&gt;<br />       
+            &lt;div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\CH351" style="width: 400px; height: 200px;"&gt;
+            &lt;/div&gt;<br />
+            </pre>
+        </div>
+        </div>
+
+</body>
+</html>
