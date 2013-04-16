@@ -61,11 +61,18 @@
             });
 
             function changeExample(url) {
+            	/// <summary>
+            	/// Changes the URL of an example
+            	/// </summary>
+            	/// <param name="url">Example URL</param>
                 var code = "&lt;iframe src=\"" + url + "\" width=\"100%\" height=\"500px\"&gt;";
                 $("#ifrExample").attr("src", url);
                 $("#preExample").html(code);
             }
             function jumpToTabExamples() {
+            	/// <summary>
+            	/// Jumps to the example page and select the appropriate tab.
+            	/// </summary>
                 $('#tabs').tabs({ selected: 2 });
             }
         });
