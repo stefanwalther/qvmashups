@@ -28,41 +28,33 @@
 
             // Example Dialogs
             $('#lnkExample1').click(function () {
-                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH32";
-                var title = 'Simple Integration';
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_WhatsNew + "&object=CH05";
+                var title = 'Simple Integration: Sales Trends';
                 openExample(url, title, 500, 400);
             });
 
             $('#lnkExample2_1').click(function () {
-                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH32&bookmark=Document\\BM01";
-                var title = 'Selected Bookmark: All Assets';
-                openExample(url, title, 500, 400);
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_WhatsNew + "&object=CH38&select=LB01,NORDIC,GERMANY";
+                var title = 'Customer Sales by Locations: Nordic and Germany';
+                openExample(url, title, 700, 300);
             });
 
             $('#lnkExample2_2').click(function () {
-                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH32&bookmark=Document\\BM02";
-                var title = 'Selected Bookmark: Americas';
-                openExample(url, title, 500, 400);
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_WhatsNew + "&object=CH38&select=LB01,USA";
+                var title = 'Customer Sales by Locations: USA';
+                openExample(url, title, 700, 300);
             });
 
             $('#lnkExample3_1').click(function () {
-                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH23&select=LB47,Americas";
-                var title = 'Selected Region: Americas';
-                openExample(url, title, 750, 400);
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_WhatsNew + "&bookmark=Document\\BM01&object=CH08&select=LB01,GERMANY&select=LB02,2010&select=LB03=Q1";
+                var title = 'Customer Report: Germany in Q1/2010';
+                openExample(url, title, 600, 400);
             });
-
             $('#lnkExample3_2').click(function () {
-                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH23&select=LB47,Germany";
-                var title = 'Selected Region: Germany';
-                openExample(url, title, 750, 400);
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_WhatsNew + "&bookmark=Document\\BM01&object=CH08&select=LB01,SPAIN&select=LB02,2010&select=LB03=Q1";
+                var title = 'Customer Report: Spain in Q1/2010';
+                openExample(url, title, 600, 400);
             });
-
-            $('#lnkExample3_3').click(function () {
-                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH23&select=LB47,Americas,Germany";
-                var title = 'Selected Region: Americas and Germany';
-                openExample(url, title, 750, 400);
-            });
-
 
             function openExample(url, title, winWidth, winHeight) {
 
@@ -107,15 +99,15 @@
                 </p>
                 The main difference between these two approaches is that
             <ul>
-                <li>opendoc.htm refrences a complete QlikView application (including all sheets, toolbar, and so on).</li>
-                <li>singleobject.htm references a single object</li>
+                <li>opendoc.htm refrences an entire QlikView application (including all sheets, toolbar, and so on).</li>
+                <li>singleobject.htm references only a single object</li>
             </ul>
                 <br />
                 <br />
-                On the other hand singleobject.htm integration and DIV integration is very similar:
+                On the other hand singleobject.htm integration and <a href="QlikView_Mashups_3.html" class="lnkBlue">DIV integration</a> is very similar:
             <ul>
-                <li>Both approaches brings a single object into your existing web application</li>
-                <li>For a full comparison of these two approaches please visit <a href="QlikView_Mashups_4.html">this site</a></li>
+                <li>Both approaches bring a single object into your existing web application</li>
+                <li>For a full comparison of these two approaches please visit <a href="QlikView_Mashups_4.html" class="lnkBlue">this site</a></li>
             </ul>
             </div>
             <div id="tabs-parameters">
@@ -234,19 +226,19 @@
                 </div>
                 <h2>Examples</h2>
                 <p>
-                    The examples below make use of the demo application IT-Asset-Management which can be <a href="http://eu.demo.qlikview.com/QvAJAXZfc/AccessPoint.aspx?open=&id=Demo11%7Cqvdocs/IT%20Asset%20Management.qvw&client=Download" class="lnkBlue" target="_blank">downloaded</a> and <a href="http://eu.demo.qlikview.com/detail.aspx?appName=IT%20Asset%20Management.qvw" class="lnkBlue" target="_blank">viewed</a> at <a href="http://demo.qlikview.com" class="lnkBlue" target="_blank">http://demo.qlikview.com</a>
+                    The examples below make use of the demo application "What's new in QlikView11" which can be <a href="http://eu.demo.qlikview.com/QvAJAXZfc/AccessPoint.aspx?open=&id=Demo11%7Cqvdocs/Whats%20New%20in%20QlikView11.qvw&client=Download" class="lnkBlue" target="_blank">downloaded</a> and <a href="http://eu.demo.qlikview.com/detail.aspx?appName=Whats%20New%20in%20QlikView11.qvw" class="lnkBlue" target="_blank">viewed at http://demo.qlikview.com</a>
                 </p>
 
                 <hr />
                 <div id="Example_1">
                     <h3>Simple integration of an object</h3>
                     <p>
-                        Calls an object from the document "IT Asset Management" with the Id "CH32"
+                        Calls an object "Sales Trends" from the document "What's New in QlikView11" (with the object Id CH05)
                     </p>
 
                     <div>
                         <pre class="wrapped">
-                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH32" /&gt;
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=Whats%20New%20in%20QlikView11.qvw&<span class="redBold">object</span>=CH05" /&gt;
                     </pre>
                     </div>
                     <br />
@@ -255,52 +247,55 @@
                 </div>
 
                 <div id="Example_2">
-                    <h3>Calling a bookmark</h3>
+                    <h3>Preselecting values</h3>
                     <p>
-                        The two examples below load the same chart ("On Order and In Stock") from the IT-Asset-Management application but with different bookmarks.
+                        The two examples below load the same chart ("Customer Sales by Region") from the "What's New in QlikView11" application but with different selections.
                     </p>
 
                     <div>
                         <pre class="wrapped">
-                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH378&bookmark=Document\BM01" /&gt;
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=Whats%20New%20in%20QlikView11.qvw&<span class="redBold">object</span>=CH38&<span class="redBold">select</span>=LB01,NORDIC,GERMANY" /&gt;
                     </pre>
                     </div>
                     <br />
-                    <button id="lnkExample2_1" class="lnkExample">Example 1: "All assets"</button>
-                    <button id="lnkExample2_2" class="lnkExample">Example 2: "Americas"</button>
+                    <button id="lnkExample2_1" class="lnkExample">Example 1: "Nordics and Germany"</button>
+                    <button id="lnkExample2_2" class="lnkExample">Example 2: "USA"</button>
                     <hr />
                 </div>
 
                 <div id="Example_3">
-                    <h3>Calling a bookmark</h3>
+                    <h3>Calling a bookmark and several selections</h3>
                     <p>
-                        The two examples below load the same straight table ("Employee Movements") from the IT-Asset-Management application but with different selections in the field "Region" (available in the list box LB47).
+                        The example below loads a straight table ("Report") from the "What's New in QlikView11" application by calling a bookmark ("Customer Report") but with different selections.
                     </p>
 
                     <div>
+                        <ul>
+                            <li>Selection 2010 in field Year (list box with the Id LB02)</li>
+                            <li>Selection Q1 in field Quarter (list box with the Id LB03)</li>
+                            <li>Selection of the region "GERMANY"</li>
+                        </ul>
+                        <br />
                         <pre class="wrapped">
-                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH23&<span class="redBold">select</span>=LB47,Americas" /&gt;
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=Whats%20New%20in%20QlikView11.qvw&<span class="redBold">bookmark</span>=Document\BM01&<span class="redBold">object</span>=CH08&<span class="redBold">select</span>=LB01,GERMANY&<span class="redBold">select</span>=LB02,2010&<span class="redBold">select</span>=LB03=Q1" /&gt;
                         </pre>
                         <br />
-                        <button id="lnkExample3_1" class="lnkExample">Example 1: Region "Americas"</button>
+                        <button id="lnkExample3_1" class="lnkExample">Customer Report: Germany in Q1/2010</button>
                     </div>
                     <br />
 
                     <div>
+                        <ul>
+                            <li>Selection 2010 in field Year (list box with the Id LB02)</li>
+                            <li>Selection Q1 in field Quarter (list box with the Id LB03)</li>
+                            <li>Selection of the region "SPAIN"</li>
+                        </ul>
+                        <br />
                         <pre class="wrapped">
-                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH23&<span class="redBold">select</span>=LB47,Germany" /&gt;
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=Whats%20New%20in%20QlikView11.qvw&<span class="redBold">bookmark</span>=Document\BM01&<span class="redBold">object</span>=CH08&<span class="redBold">select</span>=LB01,SPAIN&<span class="redBold">select</span>=LB02,2010&<span class="redBold">select</span>=LB03=Q1" /&gt;
                         </pre>
                         <br />
-                        <button id="lnkExample3_2" class="lnkExample">Example 2: Region "Germany"</button>
-                    </div>
-                    <br />
-
-                    <div>
-                        <pre class="wrapped">
-                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH23&<span class="redBold">select</span>=LB47,Americas,Germany" /&gt;
-                        </pre>
-                        <br />
-                        <button id="lnkExample3_3" class="lnkExample">Example 2: Region "Americas" & "Germany"</button>
+                        <button id="lnkExample3_2" class="lnkExample">Customer Report: Spain in Q1/2010</button>
                     </div>
                     <br />
                     

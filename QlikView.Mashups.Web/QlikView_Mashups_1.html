@@ -22,30 +22,24 @@
                 icons: { primary: "ui-icon-link" }
             });
             $('#lnkExample1').click(function () {
-                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_SalesCompass;
+                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_WhatsNew;
                 changeExample(url);
                 jumpToTabExamples();
             });
             $('#lnkExample2').click(function () {
-                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_SalesCompass + "&bookmark=Document\\BM02";
+                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_WhatsNew + "&bookmark=Document\\BM01";
                 changeExample(url);
                 jumpToTabExamples();
             });
             $('#lnkExample3').click(function () {
-                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_SalesCompass + "&amp;select=LB5698,2009";
+                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_WhatsNew + "&select=LB02,2009";
                 changeExample(url);
                 jumpToTabExamples();
             });
             $('#lnkExample4').click(function () {
-                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_SalesCompass + "&amp;select=LB5698,2009,2010&amp;select=LB5699,Q1";
+                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_WhatsNew + "&bookmark=Document\\BM01&select=LB02,2009,2010&select=LB01,NORDIC&select=LB06,Cart%20Lynch";
                 changeExample(url);
                 jumpToTabExamples();
-            });
-            $('#lnkExample5').click(function () {
-                var url = qvAjax_Path + "opendoc.htm?document=" + docPath_SalesCompass + "&amp;bookmark=Document\\BM02";
-                changeExample(url);
-                jumpToTabExamples();
-
             });
 
             // Changes the URL of an example
@@ -76,16 +70,21 @@
         <div id="tabs">
         <ul>
             <li><a href="#tabs-introduction">Introduction</a></li>
-            <li><a href="#tabs-parameters">Parameters</a></li>
-            <li><a href="#tabs-example">Example</a></li>
+            <li><a href="#tabs-parameters">Parameters & Examples</a></li>
+            <li><a href="#tabs-example">Example Result</a></li>
         </ul>
 
             <div id="tabs-introduction">
                 <h2 class="h2Tabs">Introduction</h2>
                 <p>
-                    These examples make use of "opendoc.htm" which is located in the QvAJAXZfc folder of the
-                QlikView webserver.<br />
-                    <br />
+                    These examples make use of "opendoc.htm" which is located in the QvAJAXZfc folder of the QlikView webserver.<br />
+                    Opendoc.htm integration is always used in combination with an IFRAME Html-tag.
+                </p>
+                <p>
+                    For getting the examples to work you just have to add an IFRAME tag into your existing website and you are done.
+                </p>
+                <p>
+                    Note: The following examples make use of the QlikView application "What's new in QlikView11" on <a href="http://demo.qlikview.com" class="lnkBlue" target="_blank">demo.qlikview.com</a>.<br />
                 </p>
             </div>
 
@@ -188,65 +187,56 @@
                 <h2>Code Examples:</h2>
                 <div>
                     <p>
-                        Integrating QlikView application "Sales Compass.qvw":
+                        Integrating QlikView application "Whats new in QlikView11.qvw":
                     </p>
                     <pre class="wrapped">
-                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw" /&gt;
+                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Whats%20New%20in%20QlikView11.qvw" /&gt;
                     </pre>
                     <br />
-                    <button id="lnkExample1" class="lnkExample">Load example</button>
+                    <button id="lnkExample1" class="lnkExample">Load Example</button>
                     <br />
                     <hr />
 
                     <p>
-                        Integrate QlikView application "Sales Compass.qvw" with bookmark "BM02":
+                        Integrate QlikView application "Whats new in QlikView11.qvw" with bookmark "Customer Report" (with the Id "BM01"):
                     </p>
                     <pre class="wrapped">
-                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span
-                            class="redBold">bookmark</span>=Document\BM02" /&gt;
+                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Whats%20New%20in%20QlikView11.qvw&<span class="redBold">bookmark</span>=Document\BM01" /&gt;
                     </pre>
                     <br />
-                    <button id="lnkExample2" class="lnkExample lnkClassic">Load example</button>
+                    <button id="lnkExample2" class="lnkExample lnkClassic">Load Example</button>
                     <br />
                     <hr />
 
                     <p>
-                        Integrate QlikView application "Sales Compass.qvw", selecting the value "2009 in the listbox with the ID "LB5698":
+                        Integrate QlikView application "Whats new in QlikView11.qvw", selecting the year "2009" (in the listbox with the Id LB02):
                     </p>
                     <pre class="wrapped">
-                    &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">select</span>=Document\LB5698,2009" /&gt;
+                    &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">select</span>=Document\LB02,2009" /&gt;
                     </pre>
                     <br />
-                    <button id="lnkExample3" class="lnkExample">Load example</button>
+                    <button id="lnkExample3" class="lnkExample">Load Example</button>
                     <br />
                     <hr />
 
 
                     <p>
-                        Integrating QlikView application "Sales Compass.qvw", selecting the values "2009" and "2010" in the listbox with the ID "LB5698" and value "Q1" in the listbox with the ID "LB5699":
+                        Integrating QlikView application "Whats new in QlikView11.qvw" with the following selections:
                     </p>
+                    <ul>
+                        <li>Bookmark "Customer Report" (with the Id BM01)</li>
+                        <li>Year 2009 and 2010 (list box with the Id LB02)</li>
+                        <li>Region "NORDIC" (listbox with the Id LB01)</li>
+                        <li>Sales Rep with the name "Cart Lynch" (listbox with the Id LB06)</li>
+                    </ul>
+                    <br />
                     <pre class="wrapped">
                     &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">select</span>=LB5698,2008,2009&<span class="redBold">select</span>=LB5699,Q1" /&gt;
                     </pre>
                     <br />
-                    <button id="lnkExample4" class="lnkExample">Load example</button>
+                    <button id="lnkExample4" class="lnkExample">Load Example</button>
                     <br />
                     <hr />
-
-                    <!--
-                    <p>
-                        Integrate QlikView application "Sales Compass.qvw" with bookmark "BM02" (which will in fact activate the sheet "Planning").<br />
-                        <i>Note: This example only works if you create an empty bookmark (checking "Layout State") which will point the the sheet "Planning".</i>
-                    </p>
-                    <pre class="wrapped">
-                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">bookmark</span>=Document\BM02" /&gt;
-                    </pre>
-                    <br />
-                    <button id="lnkExample5" class="lnkExample">Load example</button>
-                    <br />
-                    <hr />
-                    -->
-
                 </div>
             </div>
 

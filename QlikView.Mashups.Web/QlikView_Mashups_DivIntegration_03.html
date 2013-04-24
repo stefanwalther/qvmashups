@@ -12,21 +12,45 @@
     <script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"></script>
 
     <script language="javascript" type="text/javascript">
-        var qvDoc;
-        Init = function () {
-            qvDoc = Qv.GetCurrentDocument();
 
-            // Ensure that at all selection are cleared
-            qvDoc.Clear();
-        }
 
-        Qv.InitWorkBench({
-            View: 'Sales Compass',
-            Host: null, // Instead of using "Host: 'Local'", use "Host: null"
-            
-            // Trigger Onload function
-            BodyOnLoadFunctionNames: ['Init']
+        $(function () {
+
+            if (IsOffline()) {
+
+                loadJs(qvAjaxLib_Url, qvAjaxLoaded);
+
+                function qvAjaxLoaded() {
+
+                    var qvDoc;
+                    Init = function () {
+                        qvDoc = Qv.GetCurrentDocument();
+
+                        // Ensure that at all selection are cleared
+                        qvDoc.Clear();
+                    }
+
+                    Qv.InitWorkBench({
+                        View: 'Sales Compass',
+                        Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+                        // Trigger Onload function
+                        BodyOnLoadFunctionNames: ['Init']
+                    });
+
+                }
+            }
+            else {
+                $("#divOutput").empty();
+                $("#divOutput").html("<img src='library/images/DivIntegration_02.png'>");
+                $("#divOutput").css('cursor', 'pointer');
+                $("#divOutput").click(function () {
+                    OfflineMsg();
+                });
+            }
+
         });
+
 
     </script>
     <style type="text/css">
@@ -52,7 +76,7 @@
             In comparison to example one we force to clear any existing selections for this document.
         </div>
 
-        <div>
+        <div id="divOutput">
         <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"
             id="Document\LB5732" style="height: 100px; width: 150px;" >
         </div>

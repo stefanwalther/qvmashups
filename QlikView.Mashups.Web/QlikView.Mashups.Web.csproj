@@ -51,6 +51,10 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="library\content\OfflineDivMsg.html" />
+    <Content Include="library\images\DivIntegration_00.png" />
+    <Content Include="library\js\jquery-1.8.2.js" />
+    <Content Include="QlikView_Mashups_DivIntegration_00.html" />
     <Content Include="library\content\blank.html" />
     <Content Include="library\content\copyright.html" />
     <Content Include="library\content\loading.html" />
@@ -85,7 +89,6 @@
     <Content Include="library\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="library\css\smoothness\jquery-ui-1.9.1.custom.css" />
     <Content Include="library\css\smoothness\jquery-ui-1.9.1.custom.min.css" />
-    <Content Include="library\js\jquery-1.8.2.js" />
     <Content Include="library\js\jquery-1.8.2.min.js" />
     <Content Include="library\js\jquery-ui-1.9.1.custom.js" />
     <Content Include="library\js\jquery-ui-1.9.1.custom.min.js" />

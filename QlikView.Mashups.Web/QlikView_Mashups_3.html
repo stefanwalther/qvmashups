@@ -16,10 +16,11 @@
 	        $("#tabs").tabs({
 	            onShow: function (event, ui) {
 	                if (ui.index == 1) {
-	                    $('#example_1').trigger('click');
+	                    $('#example_0').trigger('click');
+	                }
+	                else {
 	                }
 	            }
-
 	        });
 
 	        $('.link_demo').click(function () {
@@ -59,11 +60,12 @@
 			<li><a href="#tabs-examples">Examples</a></li>
 		</ul>
 		<div id="tabs-introduction">
-			<h2 class="h2Tabs">
-				Introduction</h2>
+
+            
+			<h2 class="h2Tabs">Introduction</h2>
 				<p>
 					These examples make use of the QlikView Ajax library.<br />
-					So for getting these examples to work you first have to make sure that you include a reference to the QlikView Javascript library in the header of your Html file:
+					For getting these examples to work you first have to make sure that you include a reference to the QlikView Javascript library in the header of your Html file:
 				</p>
 				<pre class="wrapped">
 				&lt;script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"&gt;&lt;/script&gt;
@@ -86,6 +88,9 @@
 				</pre>
 				
 				<br />
+                
+
+                <h2>Further Resources &amp; Links:</h2>
 				<p>
 				Detailed information about the QlikView JavaScript API can be found at the following resources:<br />
 				</p>
@@ -114,7 +119,8 @@
 			<div class="demo-list">
 				<h2>Select Demos:</h2>
 				<ul>
-					<li><a href="QlikView_Mashups_DivIntegration_01.html" target="ifr_demo" class="link_demo active" id="example_1">Two objects</a></li>
+					<li><a href="QlikView_Mashups_DivIntegration_00.html" target="ifr_demo" class="link_demo active" id="example_0">Single Object</a></li>
+					<li><a href="QlikView_Mashups_DivIntegration_01.html" target="ifr_demo" class="link_demo">Two objects</a></li>
 					<li><a href="QlikView_Mashups_DivIntegration_02.html" target="ifr_demo" class="link_demo">Two objects using initial selections</a></li>
 					<li><a href="QlikView_Mashups_DivIntegration_03.html" target="ifr_demo" class="link_demo">Clear existing selections after loading</a></li>
 					<!--<li><a href="QlikView_Mashups_DivIntegration_4.html" target="ifr_demo" class="link_demo">Open document and select a bookmark</a></li>-->
@@ -126,7 +132,7 @@
 
 			<div class="entry-content">
 				<h2 id="demo_title"></h2>
-				<iframe class="demo-frame" id="ifrm_demo" name="ifr_demo" src="QlikView_Mashups_DivIntegration_01.html"></iframe>
+				<iframe class="demo-frame" id="ifrm_demo" name="ifr_demo" src="QlikView_Mashups_DivIntegration_00.html"></iframe>
 
 				<h2>Description:</h2>
 				<div id="demo-description"></div>

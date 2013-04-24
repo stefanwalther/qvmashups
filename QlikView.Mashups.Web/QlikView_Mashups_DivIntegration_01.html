@@ -14,33 +14,44 @@
     <title></title>
     <script language="javascript" type="text/javascript">
 
-        $(document).ready() {
-        
-            loadJs(qvAjaxLib_Url, qvAjaxLoaded);            
+        $(function () {
 
-            function qvAjaxLoaded()
-            {
-                var qvDoc;
+            if (IsOffline()) {
 
-                Init = function () {
-                    qvDoc = Qv.GetCurrentDocument();
+                loadJs(qvAjaxLib_Url, qvAjaxLoaded);
 
-                    // Ensure that in this demo everything works correct, so we should clear the selections in this case
-                    // Note: this code is not necessary, this has just been added because if you
-                    // switch between the examples of the Mashup microsite it can be that there
-                    // have been applied any selections
-                    qvDoc.Clear();
+                function qvAjaxLoaded() {
+                    var qvDoc;
+
+                    Init = function () {
+                        qvDoc = Qv.GetCurrentDocument();
+
+                        // Ensure that in this demo everything works correct, so we should clear the selections in this case
+                        // Note: this code is not necessary, this has just been added because if you
+                        // switch between the examples of the Mashup microsite it can be that there
+                        // have been applied any selections
+                        qvDoc.Clear();
+                    };
+
+                    Qv.InitWorkBench({
+                        View: 'Sales Compass',
+                        Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+                        BodyOnLoadFunctionNames: ['Init']
+                    });
+
                 }
-
-                Qv.InitWorkBench({
-                    View: 'Sales Compass',
-                    Host: null, // Instead of using "Host: 'Local'", use "Host: null"
-
-                    BodyOnLoadFunctionNames: ['Init']
+            }
+            else {
+                $("#divOutput").empty();
+                $("#divOutput").html("<img src='library/images/DivIntegration_01.png'>");
+                $("#divOutput").css('cursor', 'pointer');
+                $("#divOutput").click(function () {
+                    OfflineMsg();
                 });
             }
 
-        };
+        });
 
         
 
@@ -70,7 +81,7 @@
             <i>(Try to select some "Forecast Categories" and the "Sales Pipeline" chart will react.)</i>
         </div>
 
-        <div>
+        <div id="divOutput">
         <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"
             id="Document\LB5732" style="height: 100px; width: 150px;">
         </div>

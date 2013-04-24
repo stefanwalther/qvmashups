@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
     <link type="text/css" rel="stylesheet" href="library/css/reset.css" />
     <link type="text/css" rel="stylesheet" href="library/css/smoothness/jquery-ui-1.9.1.custom.css" />
     <link type="text/css" rel="stylesheet" href="library/css/style.css" />
@@ -11,27 +10,40 @@
 
     <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
 
+    <title></title>
     <script language="javascript" type="text/javascript">
 
-        $(function() {
+        $(function () {
 
             if (IsOffline()) {
 
                 loadJs(qvAjaxLib_Url, qvAjaxLoaded);
-
+                
                 function qvAjaxLoaded() {
+                    var qvDoc;
+
+                    Init = function () {
+                        qvDoc = Qv.GetCurrentDocument();
+
+                        // Ensure that in this demo everything works correct, so we should clear the selections in this case
+                        // Note: this code is not necessary, this has just been added because if you
+                        // switch between the examples of the Mashup microsite it can be that there
+                        // have been applied any selections
+                        qvDoc.Clear();
+                    };
 
                     Qv.InitWorkBench({
                         View: 'Sales Compass',
-                        InitialSelections: ["LB5732,Commit,Omitted,BestCase"],
-                        Host: null // Instead of using "Host: 'Local'", use "Host: null"
+                        Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+                        BodyOnLoadFunctionNames: ['Init']
                     });
 
                 }
             }
             else {
                 $("#divOutput").empty();
-                $("#divOutput").html("<img src='library/images/DivIntegration_02.png'>");
+                $("#divOutput").html("<img src='library/images/DivIntegration_00.png'>");
                 $("#divOutput").css('cursor', 'pointer');
                 $("#divOutput").click(function () {
                     OfflineMsg();
@@ -39,7 +51,6 @@
             }
 
         });
-
     </script>
     <style type="text/css">
     .QvInlineObject 
@@ -58,17 +69,15 @@
 </head>
 <body>
 
-        <h2 class="hidden" id="demo_title">Simple Mashup Integration: Two objects using initial selections</h2>
+        <h2 class="hidden" id="demo_title">Simple Mashup Integration: Single Object</h2>
         <div id="demo_description" class="hidden">
-            This example loads two objects from a single QlikView document with an initial selection in the listbox "Forecast Categories" (Id: LB5732).<br />
+            This example loads one object (list box) from a single QlikView document.<br />
+            <br />
         </div>
 
         <div id="divOutput">
         <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"
             id="Document\LB5732" style="height: 100px; width: 150px;">
-        </div>
-        <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\CH351"
-            id="Document\CH351" style="width: 300px; height: 250px;">
         </div>
         </div>
 
@@ -80,9 +89,8 @@
             &lt;script language="javascript" type="text/javascript"&gt;<br />
                  &nbsp;&nbsp;&nbsp;Qv.InitWorkBench({<br />
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View: 'Sales Compass',<br />
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="redBold">InitialSelections: ["LB5732,Commit,Omitted,BestCase"]</span>,<br />
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Instead of using "Host: 'Local'", use "Host: null"<br />
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Host: null <br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Host: null<br />
+
                  &nbsp;&nbsp;&nbsp;});<br />
             &lt;/script&gt;<br />
             </pre>
@@ -108,12 +116,9 @@
             <pre class="wrapped">
             &lt;!-- Listbox with the Id LB5732 --&gt;<br />
             &lt;div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"&gt;&lt;/div&gt;<br />
-            <br />
-            &lt;!-- Chart with the Id CH351 --&gt;<br />
-            &lt;div class="QvInlineObject"  avqview="Sales Compass" avq="object:.Document\CH351"&gt;&lt;/div&gt;<br />
             </pre>
         </div>
         </div>
-
+    <br /><br />
 </body>
 </html>

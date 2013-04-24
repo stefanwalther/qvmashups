@@ -193,6 +193,18 @@ div.divContainer {
 	overflow: hidden; display: none;
 }
 
+div.divAttention {
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    border-style:solid;
+    border-color:#ccc;
+    border-width:1px;
+    background-color:rgba(248, 239, 166, 0.81);
+
+}
+
 /* --------------------------------------------------------------- */
 
 #tabs {border: none}
