@@ -1,0 +1,218 @@
+﻿<div class="MainContainer" style="display:none;">
+    <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
+    <div id="mnuContainer"></div>
+
+    <h1>QlikView Mashups - Document Integration (using opendoc.htm)</h1>
+
+   
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-introduction">Introduction</a></li>
+            <li><a href="#tabs-parameters">Parameters</a></li>
+            <li><a href="#tabs-example">Example</a></li>
+        </ul>
+        <div id="tabs-introduction">
+            <h2 class="h2Tabs">Introduction</h2>
+            <p>
+                These examples make use of "opendoc.htm" which is located in the QvAJAXZfc folder of the
+                QlikView webserver.<br />
+                <br />
+            </p>
+        </div>
+
+        <div id="tabs-parameters">
+            <h2>Parameters</h2>
+            <div>
+                    <p>
+                        Use the following parameters to define the behaviour how your QlikView application
+                        should be integrated into your website:
+                    </p>
+                    <table style="width: 80%; margin-left: 60px;">
+                        <thead>
+                            <tr>
+                                <th width="20%">
+                                    QueryString Parameter
+                                </th>
+                                <th width="50%">
+                                    Explanation
+                                </th>
+                                <th width="30%">
+                                    Example
+                                </th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td class="oddRow">
+                                document
+                            </td>
+                            <td class="oddRow">
+                                Specify the path to the document on server
+                            </td>
+                            <td class="oddRow codeIt">
+                                document=Sales%20Compass.qvw
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="evenRow">
+                                bookmark
+                            </td>
+                            <td class="evenRow">
+                                Specify the bookmark which should be called (using the ID of the bookmark)
+                            </td>
+                            <td class="evenRow codeIt">
+                                bookmark=Document\BM01
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="oddRow">
+                                select
+                            </td>
+                            <td class="oddRow">
+                                Specify any selection using field names and values<br />
+                                <small><i>(Have a look at the examples below)</i></small>
+                            </td>
+                            <td class="oddRow codeIt">
+                                select=LB01,Germany
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="evenRow">
+                                ticket
+                            </td>
+                            <td class="evenRow">
+                                40 hex string that was returned by the Ticket webservice
+                            </td>
+                            <td class="evenRow codeIt">
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="oddRow">
+                                host
+                            </td>
+                            <td class="oddRow">
+                                Host IP of the QlikView Server (optional if running on localhost)
+                            </td>
+                            <td class="oddRow codeIt">
+                                host=local
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+
+            <h2>Parameter Examples</h2>
+            <div>
+                    <table style="width: 80%; margin-left: 60px;">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 150px;">Action</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="oddRow">Single selection (Germany) in listbox with ID = LB01</td>
+                                <td class="oddRow codeIt">select=LB01,Germany</td>
+                            </tr>
+                            <tr>
+                                <td class="evenRow">Multiple selection in one list box</td>
+                                <td class="evenRow codeIt">select=LB01,Germany,USA</td>
+                            </tr>
+                            <tr>
+                                <td class="oddRow">Multiple selection in multiple list boxes</td>
+                                <td class="oddRow codeIt">select=LB01,Germany,Argentina&amp;select=LB02,AnotherDimension</td>
+                            </tr>
+                            <tr>
+                                <td class="evenRow">Specify if it's a server or document object (document is default)</td>
+                                <td class="evenRow codeIt">select=Document\LB01,Germany,USA
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRow">Select a bookmark</td>
+                                <td class="oddRow codeIt">bookmark=Document\BM01</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            <h2>Code Examples:</h2>
+            <div>
+                    <p>
+                        Integrating QlikView application "Sales Compass.qvw":
+                    </p>
+                    <pre class="wrapped">
+<!--                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw" /&gt;-->
+                    </pre>
+                    <br />
+                    <button id="lnkExample1" class="lnkExample">Load example</button>
+                    <br /><hr />
+                
+                    <p>
+                        Integrate QlikView application "Sales Compass.qvw" with bookmark "BM01":
+                    </p>
+                    <pre class="wrapped">
+<!--                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span
+                            class="redBold">bookmark</span>=Document\BM01" /&gt;-->
+                    </pre>
+                    <br />
+                    <button id="lnkExample2" class="lnkExample lnkClassic">Load example</button>
+                    <br /><hr />
+
+                    <p>
+                        Integrate QlikView application "Sales Compass.qvw", selecting the value "2009 in the listbox with the ID "LB5698":
+                    </p>
+                    <pre class="wrapped">
+<!--                    &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">select</span>=Document\LB5698,2009" /&gt;-->
+                    </pre>
+                    <br />
+                    <button id="lnkExample3" class="lnkExample">Load example</button>
+                    <br /><hr />
+                
+                
+                    <p>
+                        Integrating QlikView application "Sales Compass.qvw", selecting the values "2009" and "2010" in the listbox with the ID "LB5698" and value "Q1" in the listbox with the ID "LB5699":
+                    </p>
+                    <pre class="wrapped">
+<!--                    &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">select</span>=LB5698,2008,2009&<span class="redBold">select</span>=LB5699,Q1" /&gt;-->
+                    </pre>
+                    <br />
+                    <button id="lnkExample4" class="lnkExample">Load example</button>
+                    <br /><hr />
+
+                    <p>
+                        Integrate QlikView application "Sales Compass.qvw" with bookmark "BM02" (which will in fact activate the sheet "Planning").<br />
+                        <i>Note: This example only works if you create an empty bookmark (checking "Layout State") which will point the the sheet "Planning".</i>
+                    </p>
+                    <pre class="wrapped">
+<!--                        &lt;iframe src="http://localhost/QvAJAXZfc/opendoc.htm?<span class="redBold">document</span>=Sales%20Compass.qvw&<span class="redBold">bookmark</span>=Document\BM02" /&gt;-->
+                    </pre>
+                    <br />
+                    <button id="lnkExample5" class="lnkExample">Load example</button>
+                    <br /><hr />
+
+                </div>
+        </div>
+
+        <div id="tabs-example">
+            <h2>Example</h2>
+            <pre id="preExample" class="wrapped">
+                ... please load an example ...
+            </pre>
+            <div class="divExample">
+                <iframe id="ifrExample" src="about:blank" width="100%" height="500px" />
+            </div>
+        </div>
+    </div>
+
+    <div id="divExplanation" class="hidden">
+
+        <h2>Additional Comments:</h2>
+        <p>
+            <b>Open/Activate a Specific Sheet:</b><br />
+            If you would like to open a specific sheet within your application, just create a bookmark exclusively for this sheet (using the "Save Layout State" option for bookmarks) and use the ID of this bookmark within your querystring.
+        </p>
+
+    </div>
+    
+    <br /><br />
+</div>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link type="text/css" href="library/css/reset.css"  rel="stylesheet"/>
+    <link type="text/css" href="library/css/smoothness/jquery-ui-1.9.1.custom.css"  rel="stylesheet"/>
+    <link type="text/css" href="library/css/style.css"  rel="stylesheet"/>
+    
+    <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(function () {
+
+            // Load the menu content & config the menu
+            $("#mnuContainer").load("library/content/menu.html", function () {
+                $("#menu").menu();
+                $("#mnuCaller").click(this, function () {
+                    $("#menu").toggle();
+                    $("#menu").position({
+                        my: "left top",
+                        at: "left bottom",
+                        of: $("#mnuCaller"),
+                        collision: "flip"
+                    });
+                });
+            });
+            
+        });
+    </script>
+    <style type="text/css">
+    .ui-menu { width: 250px; }
+    </style>
+
+    <title>Mashups with QlikView - Local Setup</title>
+</head>
+<body>
+
+    <div class="MainContainer">
+
+        <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
+        <div id="mnuContainer"></div>
+
+
+        <h1>Mashups with QlikView - Setup for Offline Usage</h1>
+
+        <h2>Hints for Setting up the Examples on your Local Machine:</h2>
+        <p>
+            Fortunately there is - in most cases - only little work to get the examples up and running.
+        </p>
+        <ul>
+            <li>For running these examples you have to ensure that you fullfill the following requirements:</li>
+            <ul>
+                <li>A local installation of QlikView Accesspoint + QlikView Server</li>
+                <li>The local QlikView Accesspoint has to be accessible via http://localhost</li>
+                <li>Ensure that the following link works: <a href="http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw" target="_blank">http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw</a></li>
+                <li>If not, download the "Sales Compass.qvw" application from demo.qlikview.com and make it accessible in the root directory of your Accesspoint</li>
+            </ul>
+            <li>There is no need to open these example Html files using a web server. You can just open it from your file system. Doing so you will probably get a warning by your browser to allow execution of ActiveX ... please confirm that.</li>
+        </ul>
+    </div>
+
+    <div class="Copyright">
+        Copyright 2013, Stefan Walther (<a href="http://www.qlikblog.at/">http://www.qlikblog.at</a>)
+    </div>
+
+
+</body>
+</html>

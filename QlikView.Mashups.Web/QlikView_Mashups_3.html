@@ -8,6 +8,8 @@
 
 	<script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
 	<script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
+
 	<script type="text/javascript" language="javascript">
 	    $(function () {
 	        // Tabs
@@ -19,19 +21,6 @@
 	            }
 
 	        });
-
-	        // Menu 
-	        $("#menu").menu();
-	        $("#mnuCaller").click(this, function () {
-	            $("#menu").toggle();
-	            $("#menu").position({
-	                my: "left top",
-	                at: "left bottom",
-	                of: $("#mnuCaller"),
-	                collision: "flip"
-	            });
-	        });
-
 
 	        $('.link_demo').click(function () {
 	            $(".demo-list").find(".active").removeClass("active");
@@ -60,13 +49,7 @@
 <body>
 <div class="MainContainer">
     <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
-    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
-        <li><a href="default.html">Start Page</a></li>
-        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
-        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
-        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
-        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
-    </ul>
+    <div id="mnuContainer"></div>
 
 	<h1>QlikView Mashups - Div Integration</h1>
 
@@ -164,8 +147,6 @@
 		</div>
 	</div>
 </div>
-<br /><br />
-
-
+<div id="divCopyright" class="Copyright"></div>
 </body>
 </html>

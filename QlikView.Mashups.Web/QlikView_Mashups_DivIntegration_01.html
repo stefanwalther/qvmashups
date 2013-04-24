@@ -8,29 +8,41 @@
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
 
-    <script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
 
 
     <title></title>
     <script language="javascript" type="text/javascript">
-        var qvDoc;
 
-        Init = function () {
-            qvDoc = Qv.GetCurrentDocument();
+        $(document).ready() {
+        
+            loadJs(qvAjaxLib_Url, qvAjaxLoaded);            
 
-            // Ensure that in this demo everything works correct, so we should clear the selections in this case
-            // Note: this code is not necessary, this has just been added because if you
-            // switch between the examples of the Mashup microsite it can be that there
-            // have been applied any selections
-            qvDoc.Clear();
-        }
+            function qvAjaxLoaded()
+            {
+                var qvDoc;
 
-        Qv.InitWorkBench({
-            View: 'Sales Compass',
-            Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+                Init = function () {
+                    qvDoc = Qv.GetCurrentDocument();
 
-            BodyOnLoadFunctionNames: ['Init']
-        });
+                    // Ensure that in this demo everything works correct, so we should clear the selections in this case
+                    // Note: this code is not necessary, this has just been added because if you
+                    // switch between the examples of the Mashup microsite it can be that there
+                    // have been applied any selections
+                    qvDoc.Clear();
+                }
+
+                Qv.InitWorkBench({
+                    View: 'Sales Compass',
+                    Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+                    BodyOnLoadFunctionNames: ['Init']
+                });
+            }
+
+        };
+
+        
 
     </script>
     <style type="text/css">
@@ -108,6 +120,9 @@
             </pre>
         </div>
         </div>
+
+
+    <br /><br />
 
 </body>
 </html>

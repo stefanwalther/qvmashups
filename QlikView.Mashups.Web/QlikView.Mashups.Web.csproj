@@ -48,10 +48,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="library\icons\" />
-    <Folder Include="library\images\documentation\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="library\content\blank.html" />
+    <Content Include="library\content\copyright.html" />
+    <Content Include="library\content\loading.html" />
+    <Content Include="library\images\ajax-loader.gif" />
+    <Content Include="library\images\Example_DivIntegration.png" />
+    <Content Include="library\images\Example_DocumentIntegration.png" />
+    <Content Include="library\images\Mashup_Sample.png" />
+    <Content Include="LocalSetup.html" />
+    <Content Include="library\content\menu.html" />
+    <Content Include="library\js\QlikViewMashups.js" />
+    <Content Include="Mashup_Error.html" />
+    <Content Include="QlikView_Mashups_DivIntegration_11.html" />
     <Content Include="QlikView_Mashups_4.html" />
     <Content Include="QlikView_Mashups_DivIntegration_10.html" />
     <Content Include="QlikView_Mashups_DivIntegration_06.html" />

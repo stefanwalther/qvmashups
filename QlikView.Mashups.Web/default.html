@@ -8,22 +8,8 @@
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
 
-    <script language="javascript" type="text/javascript">
-        $(function () {
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
 
-            // Menu 
-            $("#menu").menu();
-            $("#mnuCaller").click(this, function () {
-                $("#menu").toggle();
-                $("#menu").position({
-                    my: "left top",
-                    at: "left bottom",
-                    of: $("#mnuCaller"),
-                    collision: "flip"
-                });
-            });
-        });
-    </script>
     <style type="text/css">
     .ui-menu { width: 250px; }
     </style>
@@ -35,78 +21,56 @@
 <div class="MainContainer">
 
     <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
-    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
-        <li><a href="default.html">Start Page</a></li>
-        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
-        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
-        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
-        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
-    </ul>
+    <div id="mnuContainer"></div>
+    
 
 <h1>Mashups with QlikView</h1>
+<img src="library/images/Mashup_Sample.png" alt="Sample of a QlikView Mashup" align="right" style="border-style:dotted;border-color:#ccc;border-width:1px;margin:0px 20px 20px 20px;" />
 
 <p>
-The intention of this little collection of Html-Microsites is to demonstrate the capabilities of creating <a href="http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)" target="_blank">Mashups</a> using QlikView documents/objects.
+The intention of this little collection of Html-Microsites is to demonstrate the capabilities of realizing <a href="http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)" target="_blank">Mashups</a> using QlikView documents/objects.
 </p>
 
-<h2>Motivation</h2>
-<p>
-It is exremely easy to create Mashups with QlikView. Unfortunately this integration capability is not really well known and also not documented in detail.<br />
-That's why I have created this microsite wich should help as
-</p>
-
-<ul>
-    <li>A reference</li>
-    <li>A collection of code-samples</li>
-    <li>A collection of ready-to-demo examples</li>
-</ul>
+<h2>How to use these Examples:</h2>
+    <p>
+        All the examples on this site rely on two demo applications on <a href="http://demo.qlikview.com" target="_blank">http://demo.qlikview.com</a>.
+        In case that the URLs or demo applications change you can still use the examples using these microsites offline on your computer. 
+        In that case please have a look at the <a href="LocalSetup.html">instruction how to setup the examples for offline use</a>.
+    </p>
 
 
 <h2>Three Different Ways to Realize Mashups</h2>
 
-<p>
-From the technical perspective there are three completely different approaches how one could implement Mashups with QlikViews. This Mashup-microsoft tries to cover all of these three approaches.
-Finally I have added a <a href="QlikView_Mashups_4.html">comparison of these approaches</a> which could be a starting point if you are not sure which approach meets your requirements best.
-</p>
+    <p>
+    From the technical perspective there are three completely different approaches how one could implement Mashups based on 
+    QlikView documents/objects. This Mashup-microsite tries to cover all of these three approaches.
+    Finally I have added a <a href="QlikView_Mashups_4.html">comparison of these approaches</a> which could be a starting 
+    point if you are not sure which approach meets your requirements best.
+    </p>
 
-<ol>
+    <ol>
     <li><a href="QlikView_Mashups_1.html">Simple document integration</a> (using opendoc.htm)</li>
     <li><a href="QlikView_Mashups_2.html">Simple object integration</a> (using singleobject.htm)</li>
     <li><a href="QlikView_Mashups_3.html">Div integration</a> (using the Ajax Javascript library)</li>
 </ol>
 
-<h2>Hints for Setting up the Examples:</h2>
-<p>
-    Unfortunately there is - in most cases - little work to get the examples up and running.
-</p>
-    <ul>
-        <li>For running these examples you have to ensure that you fullfill the following requirements:</li>
-        <ul>
-            <li>A local installation of QlikView Accesspoint + QlikView Server</li>
-            <li>The local QlikView Accesspoint has to be accessible via http://localhost</li>
-            <li>Ensure that the following link works: <a href="http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw" target="_blank">http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw</a></li>
-            <li>If not, download the "Sales Compass.qvw" application from demo.qlikview.com and make it accessible in the root directory of your Accesspoint</li>
-        </ul>
-        <li>There is no need to open these example Html files using a web server. You can just open it from your file system. Doing so you will probably get a warning by your browser to allow execution of ActiveX ... please confirm that.</li>
-    </ul>
-    
-</p>
-
 <h2>Compatibility:</h2>
-<p>
+<ul>
+    <li>
+        All examples have been tested using QlikView 11 and 11.2 (but should also work in earlier versions).
+    </li>
+</ul>
+
+
+<h2>Further Information:</h2>
     <ul>
-        <li>
-            All examples have been tested using QlikView 11 and 11.2.
-        </li>
+        <li><a href="http://www.qlikblog.at/2343/" target="_blank">Basic explanation on QlikView Mashups</a></li>
+        <li><a href="https://qvmashups.codeplex.com/releases" target="_blank">Source Code/Download</a> of the QlikView Mashup Microsite</li>
     </ul>
-</p>
-
 
 </div>
 
-<div class="Copyright">
-    Copyright 2013, Stefan Walther (<a href="http://www.qlikblog.at/">http://www.qlikblog.at</a>)
-</div>
+<div id="divCopyright" class="Copyright"></div>
 
 
 </body>

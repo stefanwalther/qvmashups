@@ -8,23 +8,78 @@
     
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
+
     <script type="text/javascript" language="javascript">
         $(function () {
+
+            // Parameter Example Table
+            $("#tblParameters tr:even td").addClass('evenRow');
+            $("#tblParameters tr:odd td").addClass('oddRow');
+
             // Tabs
             $("#tabs").tabs();
 
-            // Menu 
-            $("#menu").menu();
-            $("#mnuCaller").click(this, function () {
-                $("#menu").toggle();
-                $("#menu").position({
-                    my: "left top",
-                    at: "left bottom",
-                    of: $("#mnuCaller"),
-                    collision: "flip"
-                });
+            // Buttons
+            // Examples
+            $(".lnkExample").button({
+                icons: { primary: "ui-icon-link" }
             });
 
+            // Example Dialogs
+            $('#lnkExample1').click(function () {
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH32";
+                var title = 'Simple Integration';
+                openExample(url, title, 500, 400);
+            });
+
+            $('#lnkExample2_1').click(function () {
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH32&bookmark=Document\\BM01";
+                var title = 'Selected Bookmark: All Assets';
+                openExample(url, title, 500, 400);
+            });
+
+            $('#lnkExample2_2').click(function () {
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH32&bookmark=Document\\BM02";
+                var title = 'Selected Bookmark: Americas';
+                openExample(url, title, 500, 400);
+            });
+
+            $('#lnkExample3_1').click(function () {
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH23&select=LB47,Americas";
+                var title = 'Selected Region: Americas';
+                openExample(url, title, 750, 400);
+            });
+
+            $('#lnkExample3_2').click(function () {
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH23&select=LB47,Germany";
+                var title = 'Selected Region: Germany';
+                openExample(url, title, 750, 400);
+            });
+
+            $('#lnkExample3_3').click(function () {
+                var url = qvAjax_Path + "singleobject.htm?document=" + docPath_ITAssetManagement + "&object=CH23&select=LB47,Americas,Germany";
+                var title = 'Selected Region: Americas and Germany';
+                openExample(url, title, 750, 400);
+            });
+
+
+            function openExample(url, title, winWidth, winHeight) {
+
+                $("#ifrExample").attr("src", "library/content/loading.html");
+                $("#ifrExample").width(winWidth - 50);
+                $("#ifrExample").height(winHeight - 50);
+
+                $("#ifrExample").one('load', function () {
+                    $("#ifrExample").attr("src", url);
+                    $("#exampleDialog").dialog({
+                        width: winWidth,
+                        height: winHeight,
+                        title: title,
+                        resizable: false
+                    });
+                });                
+            }
         });
     </script>
     <style type="text/css">
@@ -33,45 +88,230 @@
     </style>
 </head>
 <body>
-<div class="MainContainer">
-    <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
-    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
-        <li><a href="default.html">Start Page</a></li>
-        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
-        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
-        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
-        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
-    </ul>
+    <div class="MainContainer">
+        <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
+        <div id="mnuContainer"></div>
 
-    <h1>QlikView Mashups - Simple Object Integration (singleobject.htm)</h1>
+        <h1>QlikView Mashups - Simple Object Integration (singleobject.htm)</h1>
 
         <div id="tabs">
-        <ul>
-            <li><a href="#tabs-introduction">Introduction</a></li>
-            <li><a href="#tabs-parameters">Parameters</a></li>
-            <li><a href="#tabs-example">Example</a></li>
-        </ul>
-        <div id="tabs-introduction">
-            <h2 class="h2Tabs">Introduction</h2>
-            Integrating single QlikView objects by using an IFRAME and singleobject.htm works very similar as the opendoc.htm integration.
-            The main difference between these two approaches is that
+            <ul>
+                <li><a href="#tabs-introduction">Introduction</a></li>
+                <li><a href="#tabs-parameters">Parameters</a></li>
+                <li><a href="#tabs-examples">Examples</a></li>
+            </ul>
+            <div id="tabs-introduction">
+                <h2 class="h2Tabs">Introduction</h2>
+                <p>
+                    Integrating single QlikView objects by using an IFRAME and singleobject.htm works very similar as the opendoc.htm integration.
+                </p>
+                The main difference between these two approaches is that
             <ul>
                 <li>opendoc.htm refrences a complete QlikView application (including all sheets, toolbar, and so on).</li>
                 <li>singleobject.htm references a single object</li>
             </ul>
-            <br /><br />
-            On the other hand singleobject.htm integration and DIV integration is very similar:
+                <br />
+                <br />
+                On the other hand singleobject.htm integration and DIV integration is very similar:
             <ul>
                 <li>Both approaches brings a single object into your existing web application</li>
                 <li>For a full comparison of these two approaches please visit <a href="QlikView_Mashups_4.html">this site</a></li>
             </ul>
+            </div>
+            <div id="tabs-parameters">
+                <h2>Parameters</h2>
+                <div>
+                    <p>
+                        Use the following parameters to define the behaviour how a QlikView object
+                        should be integrated into your website:
+                    </p>
+                    <table id="tblParameters" style="width: 80%; margin-left: 60px;">
+                        <thead>
+                            <tr>
+                                <th width="20%">QueryString Parameter
+                                </th>
+                                <th width="50%">Explanation
+                                </th>
+                                <th width="30%">Example
+                                </th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>document
+                            </td>
+                            <td>Specify the path to the document on server
+                            </td>
+                            <td class="codeIt">document=Sales%20Compass.qvw
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">object
+                            </td>
+                            <td class="">Specify the Id of the QlikView object
+                            </td>
+                            <td class="codeIt">object=LB1022
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">bookmark
+                            </td>
+                            <td class="">Specify the bookmark which should be called (using the ID of the bookmark)
+                            </td>
+                            <td class="codeIt">bookmark=Document\BM01
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">select
+                            </td>
+                            <td class="">Specify any selection using field names and values<br />
+                                <small><i>(Have a look at the examples below)</i></small>
+                            </td>
+                            <td class="codeIt">select=LB01,Germany
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="">ticket
+                            </td>
+                            <td class="">40 hex string that was returned by the Ticket webservice
+                            </td>
+                            <td class="codeIt"></td>
+                        </tr>
+                        <tr>
+                            <td class="">host
+                            </td>
+                            <td class="">Host IP of the QlikView Server (optional if running on localhost)
+                            </td>
+                            <td class="codeIt">host=local
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Parameter Examples</h2>
+                <div>
+                    <table style="width: 80%; margin-left: 60px;">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 150px;">Action</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="oddRow">Single selection (Germany) in listbox with ID = LB01</td>
+                                <td class="oddRow codeIt">select=LB01,Germany</td>
+                            </tr>
+                            <tr>
+                                <td class="evenRow">Multiple selection in one list box</td>
+                                <td class="evenRow codeIt">select=LB01,Germany,USA</td>
+                            </tr>
+                            <tr>
+                                <td class="oddRow">Multiple selection in multiple list boxes</td>
+                                <td class="oddRow codeIt">select=LB01,Germany,Argentina&amp;select=LB02,AnotherDimension</td>
+                            </tr>
+                            <tr>
+                                <td class="evenRow">Specify if it's a server or document object (document is default)</td>
+                                <td class="evenRow codeIt">select=Document\LB01,Germany,USA
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRow">Select a bookmark</td>
+                                <td class="oddRow codeIt">bookmark=Document\BM01</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </div>
+            <div id="tabs-examples">
+                <div id="exampleDialog" class="hidden" title="" style="width: 300px; height: 200px;">
+                    <iframe id="ifrExample" src="library/content/blank.html" seamless scrolling="no"></iframe>
+                </div>
+                <h2>Examples</h2>
+                <p>
+                    The examples below make use of the demo application IT-Asset-Management which can be <a href="http://eu.demo.qlikview.com/QvAJAXZfc/AccessPoint.aspx?open=&id=Demo11%7Cqvdocs/IT%20Asset%20Management.qvw&client=Download" class="lnkBlue" target="_blank">downloaded</a> and <a href="http://eu.demo.qlikview.com/detail.aspx?appName=IT%20Asset%20Management.qvw" class="lnkBlue" target="_blank">viewed</a> at <a href="http://demo.qlikview.com" class="lnkBlue" target="_blank">http://demo.qlikview.com</a>
+                </p>
+
+                <hr />
+                <div id="Example_1">
+                    <h3>Simple integration of an object</h3>
+                    <p>
+                        Calls an object from the document "IT Asset Management" with the Id "CH32"
+                    </p>
+
+                    <div>
+                        <pre class="wrapped">
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH32" /&gt;
+                    </pre>
+                    </div>
+                    <br />
+                    <button id="lnkExample1" class="lnkExample">Load Example</button>
+                    <hr />
+                </div>
+
+                <div id="Example_2">
+                    <h3>Calling a bookmark</h3>
+                    <p>
+                        The two examples below load the same chart ("On Order and In Stock") from the IT-Asset-Management application but with different bookmarks.
+                    </p>
+
+                    <div>
+                        <pre class="wrapped">
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH378&bookmark=Document\BM01" /&gt;
+                    </pre>
+                    </div>
+                    <br />
+                    <button id="lnkExample2_1" class="lnkExample">Example 1: "All assets"</button>
+                    <button id="lnkExample2_2" class="lnkExample">Example 2: "Americas"</button>
+                    <hr />
+                </div>
+
+                <div id="Example_3">
+                    <h3>Calling a bookmark</h3>
+                    <p>
+                        The two examples below load the same straight table ("Employee Movements") from the IT-Asset-Management application but with different selections in the field "Region" (available in the list box LB47).
+                    </p>
+
+                    <div>
+                        <pre class="wrapped">
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH23&<span class="redBold">select</span>=LB47,Americas" /&gt;
+                        </pre>
+                        <br />
+                        <button id="lnkExample3_1" class="lnkExample">Example 1: Region "Americas"</button>
+                    </div>
+                    <br />
+
+                    <div>
+                        <pre class="wrapped">
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH23&<span class="redBold">select</span>=LB47,Germany" /&gt;
+                        </pre>
+                        <br />
+                        <button id="lnkExample3_2" class="lnkExample">Example 2: Region "Germany"</button>
+                    </div>
+                    <br />
+
+                    <div>
+                        <pre class="wrapped">
+                    &lt;iframe src="http://localhost/QvAJAXZfc/singleobject.htm?<span class="redBold">document</span>=IT%20Asset%20Management.qvw&<span class="redBold">object</span>=CH23&<span class="redBold">select</span>=LB47,Americas,Germany" /&gt;
+                        </pre>
+                        <br />
+                        <button id="lnkExample3_3" class="lnkExample">Example 2: Region "Americas" & "Germany"</button>
+                    </div>
+                    <br />
+                    
+                    <hr />
+                </div>
+            </div>
         </div>
-        </div>
-</div>
+    </div>
 
 
     
-
-</div>
+<div id="divCopyright" class="Copyright"></div>
 </body>
 </html>

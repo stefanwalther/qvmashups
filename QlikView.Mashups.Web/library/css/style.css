@@ -25,7 +25,14 @@ h1
 h2 
 {
 	color: #62AD1D;
-	font-size:120%;   
+	font-size:130%;   
+	margin-bottom:15px;
+	margin-top:20px;
+}
+
+h3 {
+    color: #62AD1D;
+	font-size:100%;   
 	margin-bottom:15px;
 	margin-top:20px;
 }
@@ -234,6 +241,34 @@ div.divContainer {
 	padding-left:40px;    
 }
 
+.bold {
+    font-weight:bold;
+}
+
+.greenBack {
+    background-color: #D7F9B8 !important;
+}
+
+.redBack {
+    background-color:#E3B9BA !important;
+}
+.whiteBack {
+    background-color:#fff !important;
+}
+
+.width-150 {
+    width:150px;
+}
+
+.center {
+    text-align:center;
+}
+
+.hvcenter {
+    text-align:center;
+    vertical-align:middle;
+}
+
 .redBold 
 {
 	color:red;
@@ -271,10 +306,12 @@ td
 td.oddRow
 {
 	background-color: #fff;
+    border-bottom: 1px solid #CCCCCC; 
 }
 td.evenRow
 {
-	background-color: #eee;    
+	background-color: #eee;  
+    border-bottom: 1px solid #CCCCCC;  
 }
 
 

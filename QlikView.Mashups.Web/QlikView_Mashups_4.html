@@ -8,22 +8,16 @@
     
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
+
 
 
     <script language="javascript" type="text/javascript">
         $(function () {
 
-            // Menu 
-            $("#menu").menu();
-            $("#mnuCaller").click(this, function () {
-                $("#menu").toggle();
-                $("#menu").position({
-                    my: "left top",
-                    at: "left bottom",
-                    of: $("#mnuCaller"),
-                    collision: "flip"
-                });
-            });
+            $("#tblComparison tr:even td").addClass('evenRow');
+            $("#tblComparison tr:odd td").addClass('oddRow');
+           
         });
     </script>
     <style type="text/css">
@@ -33,37 +27,93 @@
 <body>
 <div class="MainContainer">
     <div id="mnu" class="BackToIndex"><a id="mnuCaller" href="#">Menu</a></div>
-    <ul id="menu" style="display: none;z-index:1000;position:absolute;">
-        <li><a href="default.html">Start Page</a></li>
-        <li><a href="QlikView_Mashups_1.html">Simple Document Integration</a></li>
-        <li><a href="QlikView_Mashups_2.html">Object Integration (singleobject.htm)</a></li>
-        <li><a href="QlikView_Mashups_3.html">Object Integration (Div integration)</a></li>
-        <li><a href="QlikView_Mashups_4.html">QlikView Mashups - A Comparison</a></li>
-    </ul>
+        <div id="mnuContainer"></div>
 
     <h1>QlikView Mashups - A Comparison</h1>
 
-    <h2>Document Integration</h2>
-    
-    <h2>Object Integration</h2>
+    <div>
+        
 
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-            </tr>
-        </thead>
+    </div>
 
-    </table> 
-    
-    <br /><br />
-    
+    <div">
+        <table id="tblComparison">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="width-150">opendoc.htm</th>
+                    <th class="width-150">singleobject.htm</th>
+                    <th class="width-150">Div-Integration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="">Integrate entire QV-documents</td>
+                    <td class="greenBack center">Yes</td>
+                    <td class="redBack center">No</td>
+                    <td class="redBack center">No</td>
+                </tr>
 
+                <tr>
+                    <td class="">Integrate single QlikView objects</td>
+                    <td class="redBack center">No</td>
+                    <td class="greenBack center">Yes</td>
+                    <td class="greenBack center">Yes</td>
+                </tr>
+
+                <tr>
+                    <td class="">Object are interactive<br />
+                        <i>(if you make any selection, object refresh)</i></td>
+                    <td class="hvcenter greenBack">Yes</td>
+                    <td class="hvcenter redBack">no</td>
+                    <td class="hvcenter redBack">Yes</td>
+                </tr>
+
+                <tr>
+                    <td class="">Multiple selections at startup</td>
+                    <td class="center greenBack">Yes</td>
+                    <td class="center greenBack">Yes</td>
+                    <td class="center greenBack">Yes</td>
+                </tr>
+
+                <tr>
+                    <td class="">Applied bookmark at startup</td>
+                    <td class="center greenBack">Yes</td>
+                    <td class="center greenBack">Yes</td>
+                    <td class="center greenBack">Yes</td>
+                </tr>
+
+                <tr>
+                    <td class="">Passing a ticket/webticket</td>
+                    <td class="center greenBack">Yes</td>
+                    <td class="center greenBack">Yes</td>
+                    <td class="center greenBack">Yes</td>
+                </tr>
+
+                <tr>
+                    <td class="">Programming API</td>
+                    <td class="center redBack">No</td>
+                    <td class="center redBack">No</td>
+                    <td class="center greenBack">Yes</td>
+                </tr>
+
+                <tr>
+                    <td class="">Required Skills</td>
+                    <td class="center whiteBack">N/A</td>
+                    <td class="center whiteBack">N/A</td>
+                    <td class="center whiteBack">Basic Html + JavaScript</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+            <br /> <br /><br /><br /><br />
+    </div>
     
+ 
 
 </div>
-<div class="Copyright">
-    Copyright 2012, Stefan Walther (<a href="http://www.qlikblog.at/">http://www.qlikblog.at</a>)
-</div>
+<div id="divCopyright" class="Copyright"></div>
+
 </body>
 </html>
