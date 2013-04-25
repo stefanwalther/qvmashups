@@ -5,7 +5,16 @@
 
 
 function IsOffline() {
-    return qvAjax_Path.indexOf('http://eu.demo.qlikview.com/') == -1;
+    if (typeof qvAjax_Path == 'undefined')
+    {
+        loadJs('library/js/Config.js', function() {
+            return qvAjax_Path.indexOf('http://eu.demo.qlikview.com/') == -1;
+        });
+    }
+    else
+    {
+        return qvAjax_Path.indexOf('http://eu.demo.qlikview.com/') == -1;
+    }
 }
 
 function OfflineMsg() {
@@ -41,7 +50,9 @@ function loadJs(url, cb) {
 
 $(function () {
 
-    loadJs('library/js/Config.js');
+    loadJs('library/js/Config.js', function () {
+        //alert('loaded config.js');
+    });
 
     // Add the menu button & config the menu
     $("#mnu").empty();
