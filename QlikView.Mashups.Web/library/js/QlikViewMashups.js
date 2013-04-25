@@ -1,39 +1,5 @@
 ﻿
 // ------------------------------------------------------------------
-// Reference to demo.qlikview.com (ONLINE MODE)
-// ~~
-// - this will work for opendoc.htm & singleobject.htm Integration
-// - but this will not work for Div integration because of cross
-//   domain policy restrictions
-// ------------------------------------------------------------------
-var qvAjax_Path = 'http://eu.demo.qlikview.com/QvAJAXZfc/';
-var qvAjaxLib_Url = qvAjax_Path + 'htc/QvAjax.js';
-
-var docPath_WhatsNew = 'qvdocs/Whats%20New%20in%20QlikView11.qvw';
-var docPath_SalesCompass = 'qvDocs/Sales%20Compass.qvw';
-
-// ------------------------------------------------------------------
-// LOCAL SETUP
-// ~~
-// If you want to load your objects from your local machine (or any 
-// other machine) uncomment the following line and comment the 
-// variables above
-// In that scenario please make sure that the following Urls are working
-// ------------------------------------------------------------------
-
-var qvAjax_Path = 'http://localhost/QvAJAXZfc/';
-var qvAjaxLib_Url = qvAjax_Path + 'htc/QvAjax.js';
-
-var docPath_WhatsNew = 'Whats%20New%20in%20QlikView11.qvw';
-var docPath_SalesCompass = 'Sales%20Compass.qvw';
-
-
-
-
-
-
-
-// ------------------------------------------------------------------
 // Do not change code below this line ...
 // ------------------------------------------------------------------
 
@@ -75,15 +41,29 @@ function loadJs(url, cb) {
 
 $(function () {
 
-    // Load the menu content & config the menu
+    loadJs('library/js/Config.js');
+
+    // Add the menu button & config the menu
+    $("#mnu").empty();
+    $("#mnu").append("<button id='cmdMenu'>Select Area</button>");
+    $("#cmdMenu")
+        .button({
+            icons: {
+                secondary: "ui-icon-triangle-1-s"
+            }
+        })
+    .click(function (event) {
+        // nothing
+    });
+
     $("#mnuContainer").load("library/content/menu.html", function () {
         $("#menu").menu();
-        $("#mnuCaller").click(this, function () {
+        $("#cmdMenu").click(this, function () {
             $("#menu").toggle();
             $("#menu").position({
                 my: "left top",
                 at: "left bottom",
-                of: $("#mnuCaller"),
+                of: $("#cmdMenu"),
                 collision: "flip"
             });
         });
@@ -97,3 +77,10 @@ $(function () {
     
             
 });
+
+// ------------------------------------------------------------------
+// JavaScript Helpers
+// ------------------------------------------------------------------
+function randomFromInterval(from, to) {
+    return Math.floor(Math.random() * (to - from + 1) + from);
+}

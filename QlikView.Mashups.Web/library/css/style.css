@@ -20,6 +20,7 @@ h1
 	border-bottom-color:#efefef;
 	border-bottom-width:1px;
 	line-height:1.3em;
+    margin-top:20px;
 }
 
 h2 
@@ -58,6 +59,7 @@ ul
 	margin-left:50px;
 	line-height:1.5em;
 	margin-top:10px;
+    margin-bottom:10px;
 }
 
 
@@ -102,7 +104,7 @@ a:hover
 pre.wrapped 
 {
 overflow: auto;
-font-family: “Consolas”,monospace;
+font-family: monospace;
 font-size: 9pt;
 text-align:left;
 background-color: #FCF7EC; /*#FCF7EC*/
@@ -116,6 +118,7 @@ white-space : normal; /* crucial for IE 6, maybe 7? */
 border-color:#ccc;
 border-width:1px;
 border-style:solid;
+line-height:1.2em;
 }
 
 .codeIt 
@@ -146,6 +149,7 @@ div.entry-content
 {
 	float:right;
 	width:70%;
+    line-height:1.5em;
 }
 
 div.demo-list h2 {
@@ -179,6 +183,24 @@ div.demo-list ul {
 	border-style:solid;
 	border-color:#eeeeee;
 	border-width:1px;
+    /*overflow-y: scroll;*/
+}
+.demo-frame-notoffline {
+    line-height:1.3em;
+    border-style:solid;
+    border-color:#eee;
+    border-width:1px;
+    background-color:#FCF7EC;
+    border-top-width:0px;
+    padding-left:45px;
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-right:10px;
+    background-image: url("../icons/emblem-important-3.png");
+    background-repeat:no-repeat;
+    background-position-x:10px;
+    background-position-y: center;
+
 }
 
 /* Container for displaying the div integration objects*/
@@ -201,7 +223,7 @@ div.divAttention {
     border-style:solid;
     border-color:#ccc;
     border-width:1px;
-    background-color:rgba(248, 239, 166, 0.81);
+    background-color:#F5F5DC;
 
 }
 
@@ -239,6 +261,8 @@ div.divAttention {
 
 .BackToIndex 
 {
+    display:inline;
+    float:right;
 	position:relative;
 	text-align:right;
    
@@ -286,6 +310,12 @@ div.divAttention {
 	color:red;
 	font-weight:bold;    
 }
+.red
+{
+	color:red;
+}
+
+
 
 /* Table Definition */
 table

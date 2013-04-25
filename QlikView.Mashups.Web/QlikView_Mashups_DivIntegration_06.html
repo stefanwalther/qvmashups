@@ -9,26 +9,49 @@
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
 
-    <script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
 
     <title></title>
     <script language="javascript" type="text/javascript">
-        var qvDoc;
 
-        Init = function () {
-            qvDoc = Qv.GetCurrentDocument();
-            //qvDoc.Clear();
-        }
+        $(function () {
 
-        Qv.InitWorkBench({
-            View: 'Sales Compass',
-            Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+            if (IsOffline()) {
 
-            InitialSearch: ["LB5732,*om*"],
-            BodyOnLoadFunctionNames: ['Init']
-            
-            
+                loadJs(qvAjaxLib_Url, qvAjaxLoaded);
+
+                function qvAjaxLoaded() {
+
+                    var qvDoc;
+
+                    Init = function () {
+                        qvDoc = Qv.GetCurrentDocument();
+                        //qvDoc.Clear();
+                    }
+
+                    Qv.InitWorkBench({
+                        View: 'Sales Compass',
+                        Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+                        InitialSearch: ["LB5732,*om*"],
+                        BodyOnLoadFunctionNames: ['Init']
+
+
+                    });
+
+                }
+            }
+            else {
+                $("#divOutput").empty();
+                $("#divOutput").html("<img src='library/images/DivIntegration_06.png'>");
+                $("#divOutput").css('cursor', 'pointer');
+                $("#divOutput").click(function () {
+                    OfflineMsg();
+                });
+            }
+
         });
+
 
     </script>
     <style type="text/css">
@@ -52,11 +75,10 @@
         <div id="demo_description" class="hidden">
             This example loads two objects from a single QlikView document.<br />
             <br />
-            Note that interactivity between these two objects is still supported!<br />
-            <i>(Try to select some "Forecast Categories" and the "Sales Pipeline" chart will react.)</i>
+            For the list box "Forecast Category" there will be made an initial search using the search expression "*om*" (* will be used as a wild card).
         </div>
 
-        <div>
+        <div id="divOutput">
         <div class="QvInlineObject" avqview="Sales Compass" avq="object:.Document\LB5732"
             id="Document\LB5732" style="height: 100px; width: 150px;">
         </div>
@@ -72,10 +94,27 @@
             <pre class="wrapped">
             &lt;script language="javascript" type="text/javascript"&gt;<br />
                  &nbsp;&nbsp;&nbsp;Qv.InitWorkBench({<br />
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View: 'Sales Compass'<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View: 'Sales Compass'<br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Instead of using "Host: 'Local'", use "Host: null"<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Host: null, <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="redBold">InitialSearch: ["LB5732,*om*"]</span><br />
                  &nbsp;&nbsp;&nbsp;});<br />
             &lt;/script&gt;<br />
             </pre>
+        </div>
+
+        <div id="demo_code_css" class="hidden">
+            <pre class="wrapped">
+                .QvInlineObject<br /> 
+                {<br />
+                    &nbsp;&nbsp;&nbsp;position:relative;<br />
+                    &nbsp;&nbsp;&nbsp;margin-left:10px;<br />
+                    &nbsp;&nbsp;&nbsp;margin-right:10px;<br />
+                    &nbsp;&nbsp;&nbsp;float:left;<br />
+                }<br />
+                </pre>
         </div>
 
         <div id="demo_code_body" class="hidden">

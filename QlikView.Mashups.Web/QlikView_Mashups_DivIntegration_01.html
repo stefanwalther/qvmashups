@@ -73,7 +73,7 @@
 </head>
 <body>
 
-        <h2 class="hidden" id="demo_title">Simple Mashup Integration: Two objects</h2>
+        <h2 class="hidden" id="demo_title">Two Objects</h2>
         <div id="demo_description" class="hidden">
             This example loads two objects from a single QlikView document.<br />
             <br />
@@ -98,6 +98,7 @@
             &lt;script language="javascript" type="text/javascript"&gt;<br />
                  &nbsp;&nbsp;&nbsp;Qv.InitWorkBench({<br />
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View: 'Sales Compass',<br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Instead of using "Host: 'Local'", use "Host: null"<br />
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Host: null<br />
 
                  &nbsp;&nbsp;&nbsp;});<br />

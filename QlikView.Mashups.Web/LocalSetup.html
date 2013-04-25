@@ -7,21 +7,16 @@
     
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
 
     <script language="javascript" type="text/javascript">
         $(function () {
 
-            // Load the menu content & config the menu
-            $("#mnuContainer").load("library/content/menu.html", function () {
-                $("#menu").menu();
-                $("#mnuCaller").click(this, function () {
-                    $("#menu").toggle();
-                    $("#menu").position({
-                        my: "left top",
-                        at: "left bottom",
-                        of: $("#mnuCaller"),
-                        collision: "flip"
-                    });
+            $("#lnkConfigExample").click(function () {
+                $("#dialogOfflineSetup").dialog({
+                    width: 700,
+                    height: 550,
+                    resizable: false
                 });
             });
             
@@ -48,20 +43,51 @@
             Fortunately there is - in most cases - only little work to get the examples up and running.
         </p>
         <ul>
-            <li>For running these examples you have to ensure that you fullfill the following requirements:</li>
+            <li><b>Prerequisites</b> for running this microsite offline:</li>
             <ul>
                 <li>A local installation of QlikView Accesspoint + QlikView Server</li>
-                <li>The local QlikView Accesspoint has to be accessible via http://localhost</li>
+                <li>The local QlikView Accesspoint has to be accessible (e.g. via http://localhost)</li>
                 <li>Ensure that the following link works: <a href="http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw" target="_blank">http://localhost/QvAJAXZfc/opendoc.htm?document=Sales%20Compass.qvw</a></li>
                 <li>If not, download the "Sales Compass.qvw" application from demo.qlikview.com and make it accessible in the root directory of your Accesspoint</li>
             </ul>
-            <li>There is no need to open these example Html files using a web server. You can just open it from your file system. Doing so you will probably get a warning by your browser to allow execution of ActiveX ... please confirm that.</li>
+            <li><b>Demo Applications</b><br /></li>
+            <ul>
+                <li>There are two applications used within this microsite, the "What's new in QlikView11" and "Sales Compass"</li>
+                <li>By default both applications should be installed on your computer if you have installed QlikView Desktop</li>
+                <li>Make sure that these applications are available on your machine (or download them from <a href="http://demo.qlikview.com" target="_blank" class="lnkBlue">demo.qlikview.com</a>)</li>
+            </ul>
+            <li><b>Download the application</b></li>
+                <ul>The latest release of this solution can be found at <a href="https://qvmashups.codeplex.com/releases" target="_blank" class="lnkBlue">https://qvmashups.codeplex.com/releases</a></ul>
+            <li><b>Set Up Web Server</b></li>
+            <ul>
+                <li>Create a virtual directory on your local web server (e.g. find some instructions for Internet Information server <a href="http://support.microsoft.com/kb/172138" target="_blank" class="lnkBlue">here</a>) and copy the downloaded content into that directory.</li>
+                <li>Note: This microsite <span class="red">will also work without a web server</span>, but in this case I'd recommend to use <span class="red">Internet Explorer or Firefox</span> instead of Chrome</li>
+            </ul>
+            <li><b>Configuration</b></li>
+                <ul>
+                    <li>Go to the directory "library/js/".</li>
+                    <li>There you'll find a file called "Config.js"</li>
+                    <li>Open this file in any text editor</li>
+                    <li>Comment the four lines of the "ONLINE CONFIGURATION"</li>
+                    <li>Uncomment the four lines for the "LOCAL CONFIGURATION"</li>
+                    <li>The configuration should then look <a href="#" id="lnkConfigExample" class="lnkBlue">like this example</a> (or similar)</li>
+                    <li>Save the file</li>
+                </ul>
+
         </ul>
+
+        <h2>Online Version:</h2>
+        <p>
+            The online version of this microsite is available at <a href="http://tools.qlikblog.at/QlikView_Mashups/" class="lnkBlue" target="_blank">http://tools.qlikblog.at/QlikView_Mashups/</a>.
+
+        </p>
     </div>
 
-    <div class="Copyright">
-        Copyright 2013, Stefan Walther (<a href="http://www.qlikblog.at/">http://www.qlikblog.at</a>)
+    <div id="dialogOfflineSetup" class="hidden" title="Sample Configuration for Offline Setup">
+        <img src="library/images/LocalConfiguration.png" alt=""/>
     </div>
+
+    <div id="divCopyright" class="Copyright"></div>
 
 
 </body>

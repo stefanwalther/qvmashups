@@ -12,15 +12,36 @@
 
 	<script type="text/javascript" language="javascript">
 	    $(function () {
+
+	        // Only show the message that we are note offline, if we are not offline ;-)
+	        if (!IsOffline()) {
+	            $("#divMsgNotOffline").show();
+	        }
+
+	        // Prevent caching for all demos
+	        $(".link_demo").each(function () {
+	            $(this).attr('href', $(this).attr('href') + '?rnd=' + randomFromInterval(1, 100000000));
+	        });
+
 	        // Tabs
 	        $("#tabs").tabs({
-	            onShow: function (event, ui) {
-	                if (ui.index == 1) {
-	                    $('#example_0').trigger('click');
-	                }
-	                else {
+	            select: function (event, ui) {
+	                if (ui.index == 1)
+	                {
+	                    var $ifrTarget = $("#ifrm_demo");
+	                    // Load the first demo if not already loaded
+	                    if ($ifrTarget.contents().get(0).location.href.indexOf('blank.html') != -1)
+	                    {
+	                        var $lnkSrc = $('#example_0');
+	                        $lnkSrc.trigger('click');
+	                        $ifrTarget.attr('src', $lnkSrc.attr('href'));
+	                    }
 	                }
 	            }
+	        });
+
+	        $('#lnkMsgOffline').click(function () {
+	            OfflineMsg();
 	        });
 
 	        $('.link_demo').click(function () {
@@ -117,13 +138,13 @@
 		<div id="tabs-examples">
 				
 			<div class="demo-list">
-				<h2>Select Demos:</h2>
+				<h2>Select QlikView Mashup Demos:</h2>
 				<ul>
 					<li><a href="QlikView_Mashups_DivIntegration_00.html" target="ifr_demo" class="link_demo active" id="example_0">Single Object</a></li>
-					<li><a href="QlikView_Mashups_DivIntegration_01.html" target="ifr_demo" class="link_demo">Two objects</a></li>
+					<li><a href="QlikView_Mashups_DivIntegration_01.html" target="ifr_demo" class="link_demo" id="example_1">Two objects</a></li>
 					<li><a href="QlikView_Mashups_DivIntegration_02.html" target="ifr_demo" class="link_demo">Two objects using initial selections</a></li>
 					<li><a href="QlikView_Mashups_DivIntegration_03.html" target="ifr_demo" class="link_demo">Clear existing selections after loading</a></li>
-					<!--<li><a href="QlikView_Mashups_DivIntegration_4.html" target="ifr_demo" class="link_demo">Open document and select a bookmark</a></li>-->
+					<li><a href="QlikView_Mashups_DivIntegration_04.html" target="ifr_demo" class="link_demo">Open document and select a bookmark</a></li>
                     <li><a href="QlikView_Mashups_DivIntegration_05.html" target="ifr_demo" class="link_demo">Enable/Disable Inline Style</a></li>
                     <li><a href="QlikView_Mashups_DivIntegration_06.html" target="ifr_demo" class="link_demo">Using InitialSearch</a></li>
                     <li><a href="QlikView_Mashups_DivIntegration_10.html" target="ifr_demo" class="link_demo">Loading from different QlikView documents</a></li>
@@ -132,11 +153,23 @@
 
 			<div class="entry-content">
 				<h2 id="demo_title"></h2>
-				<iframe class="demo-frame" id="ifrm_demo" name="ifr_demo" src="QlikView_Mashups_DivIntegration_00.html"></iframe>
+				<iframe class="demo-frame" id="ifrm_demo" name="ifr_demo" src="library/content/blank.html"></iframe>
+                <div id="divMsgNotOffline" class="demo-frame-notoffline hidden">
+                    We are NOT working on offline mode, so the examples above are only simulate how integrate would look like.<br />
+                    <a href="#" id="lnkMsgOffline" class="lnkBlue">Click here to find out why!</a>
+
+                </div>
 
 				<h2>Description:</h2>
 				<div id="demo-description"></div>
 				
+                <h2>Reference to QlikView JavaScript file:</h2>
+                <div>
+                    <pre class="wrapped">
+                        &lt;script language="javascript" type="text/javascript" src="http://SERVER_URL/QVAJAXZfc/htc/QvAjax.js"&gt;&lt;/script&gt;
+                    </pre>
+                </div>
+
 				<h2>Source Code (Html Header):</h2>
 				<div id="demo-source-header"></div>
 

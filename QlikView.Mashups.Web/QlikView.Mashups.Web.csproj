@@ -47,12 +47,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="library\icons\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="library\content\OfflineDivMsg.html" />
+    <Content Include="library\icons\emblem-important-3.png" />
     <Content Include="library\images\DivIntegration_00.png" />
+    <Content Include="library\images\DivIntegration_01.png" />
+    <Content Include="library\images\DivIntegration_02.png" />
+    <Content Include="library\images\DivIntegration_03.png" />
+    <Content Include="library\images\DivIntegration_04.png" />
+    <Content Include="library\images\DivIntegration_05.png" />
+    <Content Include="library\images\DivIntegration_06.png" />
+    <Content Include="library\images\DivIntegration_10.png" />
+    <Content Include="library\images\LocalConfiguration.png" />
+    <Content Include="library\js\Config.js" />
     <Content Include="library\js\jquery-1.8.2.js" />
     <Content Include="QlikView_Mashups_DivIntegration_00.html" />
     <Content Include="library\content\blank.html" />
@@ -66,7 +75,6 @@
     <Content Include="library\content\menu.html" />
     <Content Include="library\js\QlikViewMashups.js" />
     <Content Include="Mashup_Error.html" />
-    <Content Include="QlikView_Mashups_DivIntegration_11.html" />
     <Content Include="QlikView_Mashups_4.html" />
     <Content Include="QlikView_Mashups_DivIntegration_10.html" />
     <Content Include="QlikView_Mashups_DivIntegration_06.html" />
@@ -101,7 +109,6 @@
     <Content Include="QlikView_Mashups_DivIntegration_01.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QlikView_Mashups_Setup.html" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

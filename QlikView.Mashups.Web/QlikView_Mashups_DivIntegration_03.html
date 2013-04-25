@@ -9,7 +9,8 @@
     <script language="javascript" type="text/javascript" src="library/js/jquery-1.8.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="library/js/jquery-ui-1.9.1.custom.js"></script>
 
-    <script language="javascript" type="text/javascript" src="http://localhost/QVAJAXZfc/htc/QvAjax.js"></script>
+    <script language="javascript" type="text/javascript" src="library/js/QlikViewMashups.js"></script>
+
 
     <script language="javascript" type="text/javascript">
 
@@ -32,7 +33,9 @@
 
                     Qv.InitWorkBench({
                         View: 'Sales Compass',
-                        Host: null, // Instead of using "Host: 'Local'", use "Host: null"
+
+                        // Instead of using "Host: 'Local'", use "Host: null"
+                        Host: null, 
 
                         // Trigger Onload function
                         BodyOnLoadFunctionNames: ['Init']
@@ -42,7 +45,7 @@
             }
             else {
                 $("#divOutput").empty();
-                $("#divOutput").html("<img src='library/images/DivIntegration_02.png'>");
+                $("#divOutput").html("<img src='library/images/DivIntegration_03.png'>");
                 $("#divOutput").css('cursor', 'pointer');
                 $("#divOutput").click(function () {
                     OfflineMsg();
@@ -70,7 +73,7 @@
 </head>
 <body>
 
-        <h2 class="hidden" id="demo_title">Clear existing selections after loading objects</h2>
+        <h2 class="hidden" id="demo_title">Clear Existing Selections After Loading Objects</h2>
         <div id="demo_description" class="hidden">
             This example loads two objects from a single QlikView document.<br />
             In comparison to example one we force to clear any existing selections for this document.
@@ -101,6 +104,9 @@
             Qv.InitWorkBench({<br />
                 &nbsp;&nbsp;&nbsp;View: 'Sales Compass',<br />
                 <br />
+                &nbsp;&nbsp;&nbsp;// Instead of using "Host: 'Local'", use "Host: null"<br />
+                &nbsp;&nbsp;&nbsp;Host: null, <br />
+                <br />
                 &nbsp;&nbsp;&nbsp;// Trigger Onload function<br />
                 &nbsp;&nbsp;&nbsp;BodyOnLoadFunctionNames: ['Init']<br />
             });<br />
@@ -116,10 +122,6 @@
             &nbsp;&nbsp;&nbsp;margin-right:10px;<br />
             &nbsp;&nbsp;&nbsp;float:left;<br />
         }<br />
-        .CustomQVStyle
-        {
-        
-        }
         </pre>
         </div>
 
