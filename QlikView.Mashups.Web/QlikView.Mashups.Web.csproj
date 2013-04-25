@@ -46,9 +46,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="library\content\OfflineDivMsg.html" />
     <Content Include="library\icons\emblem-important-3.png" />
@@ -110,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
